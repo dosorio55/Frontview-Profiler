@@ -1,0 +1,48 @@
+.skills {
+
+    &_cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+
+
+
+    }
+
+    &_card {
+        background: var(--color-bg-variant);
+        border: 1px solid transparent;
+        border-radius: 1rem;
+        padding: 2rem;
+        text-align: center;
+        transition: all .3s;
+
+        &:hover {
+            background-color: transparent;
+            border-color: var(--color-primary);
+            cursor: pointer;
+        }
+    }
+}
+
+@media screen  and (max-width: 1024px)  {
+    .skills_cards {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+  }
+  
+  //small devices
+  
+  @media screen and (max-width: 600px) {
+    .skills_cards {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+  
+    section {
+      margin-bottom: 2rem;
+    }
+  }

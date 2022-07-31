@@ -1,0 +1,30 @@
+.listContainer {
+    background-color: #F8FAFC;
+    // background-color: #f1f5f9;
+    // display: flex;
+    display: grid;
+    grid-template-columns: 120px 20rem 9rem;
+    // justify-items: center;
+    align-items: center;
+
+    padding: 0.75rem;
+    text-transform: capitalize;
+
+    &__img {
+        border-radius: 80px;
+        width: 100px;
+        height: 95px;
+    }
+
+    &__name {
+        font-weight: 700;
+    }
+
+    &_btn {
+        padding: 0.75rem;
+        text-transform: uppercase;
+        justify-self: center;
+        background-color: #bfdbfe;
+        border: none;
+    }
+}
