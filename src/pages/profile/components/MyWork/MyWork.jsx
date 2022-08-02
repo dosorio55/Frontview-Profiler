@@ -1,6 +1,5 @@
 import React from 'react'
 import { BASE_URL } from '../../../../context/api/context'
-import './MyWork.scss'
 
 const MyWork = ({ project, getProjects, editMode }) => {
 

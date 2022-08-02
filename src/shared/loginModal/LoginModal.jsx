@@ -40,8 +40,6 @@ const LoginModal = ({ modalValue, setLogin }) => {
         await signIn(dispatch, loginForm)
       } else {
         await loginUser(dispatch, loginForm)
-        // if (!response.id) return;
-
       }
       setLogin()
       navigate("/network")
