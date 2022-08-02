@@ -118,9 +118,12 @@ const Header = ({ loginValue, setLogin }) => {
             {loginValue ? <BiLogOut onClick={handleLogout} /> : <BiUser onClick={modal} />}
           </Icons>
         </StyledToolbar>
-        <Menu anchorEl={anchorElm} open={open} onClose={handleClose}>
-          <MenuItem onClick={handleClose}>Profile</MenuItem>
+        <Menu anchorEl={anchorElm} open={open} onClose={handleClose}
+          anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+          transformOrigin={{ vertical: 'top', horizontal: 'right' }} >
+          <MenuItem onClick={handleClose}><Link to='/profile'>Profile</Link></MenuItem>
           <MenuItem onClick={handleClose}>Balance</MenuItem>
+          <Divider />
           <MenuItem onClick={handleClose}>Logout</MenuItem>
         </Menu>
       </AppBar >
