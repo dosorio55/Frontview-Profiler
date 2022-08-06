@@ -5,7 +5,6 @@ import { FaReact } from 'react-icons/fa'
 const Experience = ({ habilities }) => {
     return (
         <section className='skills__container' id='work'>
-            <h5>The Skills I Have</h5>
             <h2>My Expertise</h2>
 
             <div className="container skills__container">

@@ -1,4 +1,4 @@
-import { Avatar, Box, CircularProgress, Paper, styled, Typography } from '@mui/material';
+import { Avatar, Box, CircularProgress, Paper, Stack, styled, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import { BASE_URL } from '../../context/api/context';
 import AboutMe from './components/AboutMe/AboutMe';
@@ -11,11 +11,11 @@ const StyledBox = styled(Box)(({
     borderRadius: '1rem'
 }));
 
-const StyledPaper = styled(Paper)(({
+const StyledPaper = styled(Box)(({
     display: "flex",
     padding: "1.125rem",
-    borderRadius: '1rem'
-
+    borderRadius: '1rem',
+    backgroundColor: "white"
 }));
 
 const ProfileBox = styled(Box)(({
@@ -24,10 +24,10 @@ const ProfileBox = styled(Box)(({
     alignItems: 'center'
 }));
 
-const BubbleBox = styled(Box)(({ theme }) => ({
+/* const BubbleBox = styled(Box)(({ theme }) => ({
     display: "flex",
     gap: theme.spacing(3)
-}));
+})); */
 
 const Feed = () => {
 
@@ -97,8 +97,8 @@ const Feed = () => {
             {loading ?
                 <CircularProgress />
                 : <>
-                    <BubbleBox>
-                        <StyledPaper elevation={0}>
+                    <Stack direction="row" spacing={2}>
+                        <StyledPaper flex={8} elevation={0}>
                             <ProfileBox>
                                 <Avatar
                                     alt={name}
@@ -110,30 +110,18 @@ const Feed = () => {
                                 </Typography>
                             </ProfileBox>
                             <Typography variant="body1" component="p" color="initial">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Et odit sapiente necessitatibus tempore, recusandae autem accusamus cum voluptates ullam illum fugiat aliquid nisi incidunt vitae magni magnam, obcaecati ut quia a deleniti vero mollitia tempora ex. Sunt necessitatibus suscipit repellat.
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt cupiditate et sit fuga hic quae quas dolores animi culpa laborum?
                             </Typography>
                         </StyledPaper>
 
-                        <StyledPaper elevation={0}>
-                            <ProfileBox>
-                                <Avatar
-                                    alt={name}
-                                    src={image}
-                                    sx={{ width: 56, height: 56 }}
-                                />
-                                <Typography variant="h6" component="p" color="initial">
-                                    {name}
-                                </Typography>
-                            </ProfileBox>
-                            <Typography variant="body1" component="p" color="initial">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Et odit sapiente necessitatibus tempore, recusandae autem accusamus cum voluptates ullam illum fugiat aliquid nisi incidunt vitae magni magnam, obcaecati ut quia a deleniti vero mollitia tempora ex. Sunt necessitatibus suscipit repellat.
-                            </Typography>
+                        <StyledPaper flex={3} elevation={0}>
+                    {habilities && <Experience habilities={habilities}></Experience>}
+             
                         </StyledPaper>
-                    </BubbleBox>
+                    </Stack>
 
                     <AboutMe description={description} />
 
-                    {habilities && <Experience habilities={habilities}></Experience>}
 
                     <section>
                         <h5>My Recent Work</h5>
