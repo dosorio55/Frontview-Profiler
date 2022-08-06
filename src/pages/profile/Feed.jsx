@@ -69,7 +69,7 @@ const Feed = () => {
     const { name, headline, description, habilities, image } = profile
 
     return (
-        <Box bgcolor="lightBlue" flex={11}>
+        <Box bgcolor="#e3f2fd" flex={10}>
             <div>
                 <h5 >Hello I am</h5>
                 <h1>{name}</h1>
