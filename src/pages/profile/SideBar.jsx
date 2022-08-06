@@ -13,15 +13,13 @@ const StyledListItemButton = styled(ListItemButton)(({ theme }) => ({
   padding: theme.spacing(.8, 2)
 }));
 
-const StyledListIcon = styled(ListItemIcon)( ({
+const StyledListIcon = styled(ListItemIcon)(({
   minWidth: "36px"
 }));
 
-
-
 const SideBar = () => {
   return (
-    <Box flex={1} sx={{paddingLeft: "1rem"}}>
+    <Box flex={2} sx={{ paddingLeft: "1rem" }} pt="1.5rem">
       <List>
         <StyledDiv >
           <Typography variant="h6" component="p">Dashboard</Typography>

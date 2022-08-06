@@ -4,18 +4,11 @@ import { BASE_URL } from '../../context/api/context';
 import AboutMe from './components/AboutMe/AboutMe';
 import Experience from './components/Experience/Experience';
 import MyWork from './components/MyWork/MyWork';
+import { StyledPaper } from './Styles/materialStyles';
 
 const StyledBox = styled(Box)(({
     padding: "1.5rem",
-    backgroundColor: "#e3f2fd",
-    borderRadius: '1rem'
-}));
-
-const StyledPaper = styled(Box)(({
-    display: "flex",
-    padding: "1.125rem",
-    borderRadius: '1rem',
-    backgroundColor: "white"
+    backgroundColor: "#e3f2fd"
 }));
 
 const ProfileBox = styled(Box)(({
@@ -23,11 +16,6 @@ const ProfileBox = styled(Box)(({
     flexDirection: 'column',
     alignItems: 'center'
 }));
-
-/* const BubbleBox = styled(Box)(({ theme }) => ({
-    display: "flex",
-    gap: theme.spacing(3)
-})); */
 
 const Feed = () => {
 
@@ -93,7 +81,7 @@ const Feed = () => {
     const { name, headline, description, habilities, image } = profile
 
     return (
-        <StyledBox style={{ margin: "1.5rem" }}>
+        <StyledBox flex={10} style={{ margin: "1.5rem" }} borderRadius>
             {loading ?
                 <CircularProgress />
                 : <>
@@ -103,46 +91,40 @@ const Feed = () => {
                                 <Avatar
                                     alt={name}
                                     src={image}
-                                    sx={{ width: 56, height: 56 }}
+                                    sx={{ width: 100, height: 100 }}
                                 />
-                                <Typography variant="h6" component="p" color="initial">
+                                {/*         <Typography variant="h6" component="p" color="initial">
                                     {name}
-                                </Typography>
+                                </Typography> */}
                             </ProfileBox>
                             <Typography variant="body1" component="p" color="initial">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt cupiditate et sit fuga hic quae quas dolores animi culpa laborum?
+                            <AboutMe description={description} />
                             </Typography>
                         </StyledPaper>
 
-                        <StyledPaper flex={3} elevation={0}>
-                    {habilities && <Experience habilities={habilities}></Experience>}
-             
+                        <StyledPaper flex={4} elevation={0}>
+                            {habilities &&
+                                <Experience habilities={habilities}></Experience>}
+                        </StyledPaper>
+                        <StyledPaper flex={4} elevation={0}>
+                            {habilities &&
+                                <Experience habilities={habilities}></Experience>}
                         </StyledPaper>
                     </Stack>
 
-                    <AboutMe description={description} />
 
 
-                    <section>
-                        <h5>My Recent Work</h5>
-                        <h2>Portafolio</h2>
-                        <div>
-                            {projects && projects.map((project) =>
+                    <StyledPaper>
+                        {projects && projects.map((project) =>
 
-                                <MyWork
-                                    key={project._id}
-                                    project={project}
-                                    getProjects={getProjects}
-                                    editMode={editMode}
-                                ></MyWork>
-                            )}
-                            {/*{editMode &&
-                 <article className='portfolio__item'>
-                     <p className='btn parrafo' onClick={addProjectModal}>add a new project</p>
-                 </article>
-             } */}
-                        </div>
-                    </section>
+                            <MyWork
+                                key={project._id}
+                                project={project}
+                                getProjects={getProjects}
+                                editMode={editMode}
+                            ></MyWork>
+                        )}
+                    </StyledPaper>
                 </>}
 
         </StyledBox>
@@ -150,3 +132,8 @@ const Feed = () => {
 }
 
 export default Feed
+{/*{editMode &&
+<article className='portfolio__item'>
+<p className='btn parrafo' onClick={addProjectModal}>add a new project</p>
+</article>
+} */}
