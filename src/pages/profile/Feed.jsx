@@ -1,4 +1,4 @@
-import { Avatar, Box, CircularProgress, Stack, styled, Typography } from '@mui/material';
+import { Avatar, Box, CircularProgress, Grid, Stack, styled, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import { BASE_URL } from '../../context/api/context';
 import AboutMe from './components/AboutMe/AboutMe';
@@ -11,7 +11,7 @@ const StyledBox = styled(Box)(({
     flexDirection: "column",
     padding: "1.5rem",
     backgroundColor: "#e3f2fd",
-    gap: 15
+    gap: 15,
 }));
 
 const ProfileBox = styled(Box)(({
@@ -20,6 +20,13 @@ const ProfileBox = styled(Box)(({
     gap: 15,
     alignItems: 'center',
     justifyContent: "center"
+}));
+
+const GridContainer = styled(Box)(({
+    display: "grid",
+    gridTemplateColumns: '6fr 3fr 3fr',
+    gridTemplateRows: '4fr 8fr',
+    gap: 15
 }));
 
 const Feed = () => {
@@ -89,53 +96,53 @@ const Feed = () => {
         <StyledBox flex={10} style={{ margin: "1.5rem" }} borderRadius>
             {loading ?
                 <CircularProgress />
-                : <>
-                    <Stack direction="row" spacing={2}>
-                        <StyledPaper flex={8} elevation={0}>
-                            <ProfileBox>
-                                <Avatar
-                                    alt={name}
-                                    src={image}
-                                    sx={{ width: 100, height: 100 }}
-                                />
-                                <Typography variant="body1" component="p" color="initial">
-                                    <AboutMe description={description} />
-                                </Typography>
-                            </ProfileBox>
-                        </StyledPaper>
+                :
+                <GridContainer>
+                    <StyledPaper flex={8} elevation={0}>
+                        <ProfileBox>
+                            <Avatar
+                                alt={name}
+                                src={image}
+                                sx={{ width: 100, height: 100 }}
+                            />
+                            <Typography variant="body1" component="p" color="initial">
+                                <AboutMe description={description} />
+                            </Typography>
+                        </ProfileBox>
+                    </StyledPaper>
 
-                        <StyledPaper flex={4} elevation={0}>
-                            {habilities &&
-                                <Experience habilities={habilities}></Experience>}
-                        </StyledPaper>
+                    <StyledPaper elevation={0}>
+                        {habilities &&
+                            <Experience habilities={habilities}></Experience>}
+                    </StyledPaper>
 
-                        <StyledPaper flex={4} elevation={0}>
-                            {habilities &&
-                                <Experience habilities={habilities}></Experience>}
-                        </StyledPaper>
-                    </Stack>
+                    <StyledPaper elevation={0}>
+                        {habilities &&
+                            <Experience habilities={habilities}></Experience>}
+                    </StyledPaper>
 
-                    <Stack direction="row" spacing={2}>
-                        <StyledPaper flex={16}>
-                            <Stack direction="row" spacing={2}>
-                                {projects && projects.map(project =>
-                                    <Project
-                                        key={project._id}
-                                        project={project}
-                                        getProjects={getProjects}
-                                        editMode={editMode}
-                                    ></Project>
-                                )}
-                            </Stack>
-                        </StyledPaper>
-                        <Box flex={5.8}>
-                            <StyledPaper elevation={0}>
-                                {habilities &&
-                                    <Experience habilities={habilities}></Experience>}
-                            </StyledPaper>
-                        </Box>
-                    </Stack>
-                </>}
+
+                    <StyledPaper flex={16}>
+                        <Stack direction="row" spacing={2}>
+                            {projects && projects.map(project =>
+                                <Project
+                                    key={project._id}
+                                    project={project}
+                                    getProjects={getProjects}
+                                    editMode={editMode}
+                                ></Project>
+                            )}
+                        </Stack>
+                    </StyledPaper>
+
+                    <StyledPaper elevation={0}>
+                        {habilities &&
+                            <Experience habilities={habilities}></Experience>}
+                    </StyledPaper>
+
+
+                </GridContainer>
+            }
 
         </StyledBox>
     )
