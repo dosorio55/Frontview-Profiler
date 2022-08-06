@@ -1,4 +1,4 @@
-import { Avatar, Box, CircularProgress, Grid, Stack, styled, Typography } from '@mui/material';
+import { Avatar, Box, CircularProgress, Grid, Paper, Stack, styled, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import { BASE_URL } from '../../context/api/context';
 import AboutMe from './components/AboutMe/AboutMe';
@@ -12,6 +12,7 @@ const StyledBox = styled(Box)(({
     padding: "1.5rem",
     backgroundColor: "#e3f2fd",
     gap: 15,
+    // minHeight: "70%"
 }));
 
 const ProfileBox = styled(Box)(({
@@ -25,7 +26,19 @@ const ProfileBox = styled(Box)(({
 const GridContainer = styled(Box)(({
     display: "grid",
     gridTemplateColumns: '6fr 3fr 3fr',
-    gridTemplateRows: '4fr 8fr',
+    // gridTemplateRows: '3fr 9fr',
+    gap: 15
+}));
+
+
+const ProjectsGrid = styled(Paper)(({
+    display: "grid",
+    gridTemplateColumns: '1fr 1fr 1fr',
+    padding: "1.125rem",
+    // gridTemplateRows: '1fr 1fr',
+    alignItems: "center",
+    gridColumn: "span 2",
+    // justifyContent: "center",
     gap: 15
 }));
 
@@ -61,10 +74,7 @@ const Feed = () => {
             }
         })
             .then(response => response.json())
-            .then(data => {
-                setProfile(data[0]);
-                console.log(data[0])
-            })
+            .then(data => setProfile(data[0]))
             .finally(() => {
                 setLoading(false);
             });
@@ -122,8 +132,8 @@ const Feed = () => {
                     </StyledPaper>
 
 
-                    <StyledPaper flex={16}>
-                        <Stack direction="row" spacing={2}>
+                    {/* <StyledPaper sx={{ gridColumn: "span 2" }}> */}
+                        <ProjectsGrid container direction="row" spacing={2}>
                             {projects && projects.map(project =>
                                 <Project
                                     key={project._id}
@@ -132,8 +142,8 @@ const Feed = () => {
                                     editMode={editMode}
                                 ></Project>
                             )}
-                        </Stack>
-                    </StyledPaper>
+                        </ProjectsGrid>
+                    {/* </StyledPaper> */}
 
                     <StyledPaper elevation={0}>
                         {habilities &&

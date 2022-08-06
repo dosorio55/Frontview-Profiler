@@ -1,6 +1,14 @@
-import { Card, CardMedia, Typography, CardContent } from '@mui/material'
+import { Card, CardMedia, Typography, CardContent, Button, Box, Grid, styled } from '@mui/material'
 import React from 'react'
 import { BASE_URL } from '../../../../context/api/context'
+
+const StyledBox = styled(Box)(({
+    display: "flex",
+    // flexDirection: "column",
+    padding: "1.125rem",
+    // backgroundColor: "#e3f2fd",
+    gap: 15,
+}));
 
 const MyWork = ({ project, getProjects, editMode }) => {
 
@@ -23,20 +31,21 @@ const MyWork = ({ project, getProjects, editMode }) => {
         <Card>
             <CardMedia
                 component="img"
-                width={100}
-                // height="194"
+                height="80rem"
                 image={imageLink}
                 alt={projectName}
             />
             <CardContent>
                 <Typography variant="body2" color="text.secondary">
-                    <p>{description}</p>
+                    <h3>{projectName}</h3>
+                    {/* <p>{description}</p> */}
                 </Typography>
             </CardContent>
-            <h3>{projectName}</h3>
-            <a href="https://tailwindcss.com" className='btn btn-primary'>Live Demo</a>
-            <a href="https://github.com/dosorio55" className='btn'>Github</a>
-            {editMode && <button onClick={handleDelete}>delete</button>}
+            <StyledBox>
+                <Button variant="outlined">GitHub</Button>
+                <Button variant="contained">Live Demo</Button>
+            </StyledBox>
+            {/* {editMode && <button onClick={handleDelete}>delete</button>} */}
         </Card>
     )
 }

@@ -33,7 +33,7 @@ function App() {
       <AuthProvider>
         <Router>
           <ModalContext.Provider value={handleModal}>
-            <Header loginValue={login} setLogin={handleLogin}></Header>
+            {/* <Header loginValue={login} setLogin={handleLogin}></Header> */}
             <LoginModal modalValue={modal} setLogin={handleLogin}></LoginModal>
           </ModalContext.Provider>
           <Routes>

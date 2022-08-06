@@ -9,7 +9,7 @@ const Profile = () => {
 
   return (
 
-    <Box>
+    <Box >
       <Stack direction="row" spacing={2} justifyContent="space-between">
         <SideBar />
         <Feed />
