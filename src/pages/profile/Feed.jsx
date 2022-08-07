@@ -1,9 +1,10 @@
-import { Avatar, Box, CircularProgress, Grid, Paper, Stack, styled, Typography } from '@mui/material';
+import { Avatar, Box, CircularProgress, Divider, Grid, Pagination, Paper, Stack, styled, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import { BASE_URL } from '../../context/api/context';
 import AboutMe from './components/AboutMe/AboutMe';
 import Experience from './components/Experience/Experience';
 import Project from './components/Project/Project';
+import WorkTimeline from './components/WorkTimeline';
 import { StyledPaper } from './Styles/materialStyles';
 
 const StyledBox = styled(Box)(({
@@ -31,13 +32,14 @@ const GridContainer = styled(Box)(({
 }));
 
 
-const ProjectsGrid = styled(Paper)(({
+const ProjectsGrid = styled(Box)(({
     display: "grid",
     gridTemplateColumns: '1fr 1fr 1fr',
     padding: "1.125rem",
+    paddingBottom: "0.8rem",
     // gridTemplateRows: '1fr 1fr',
     alignItems: "center",
-    gridColumn: "span 2",
+    // gridColumn: "span 2",
     // justifyContent: "center",
     gap: 15
 }));
@@ -115,9 +117,14 @@ const Feed = () => {
                                 src={image}
                                 sx={{ width: 100, height: 100 }}
                             />
-                            <Typography variant="body1" component="p" color="initial">
-                                <AboutMe description={description} />
-                            </Typography>
+                            <div>
+                                <Typography variant="h6" component="p" color="initial">
+                                    {name}
+                                </Typography>
+                                <Typography variant="body1" component="p" color="initial">
+                                    <AboutMe description={description} />
+                                </Typography>
+                            </div>
                         </ProfileBox>
                     </StyledPaper>
 
@@ -132,7 +139,7 @@ const Feed = () => {
                     </StyledPaper>
 
 
-                    {/* <StyledPaper sx={{ gridColumn: "span 2" }}> */}
+                    <Paper sx={{ gridColumn: "span 2" }}>
                         <ProjectsGrid container direction="row" spacing={2}>
                             {projects && projects.map(project =>
                                 <Project
@@ -143,11 +150,13 @@ const Feed = () => {
                                 ></Project>
                             )}
                         </ProjectsGrid>
-                    {/* </StyledPaper> */}
+                        <Divider />
+                        <Pagination count={10} variant="outlined" color="secondary"
+                            sx={{ display: "flex", justifyContent: "flex-end", p: "0.3rem .3rem .3rem" }} />
+                    </Paper>
 
                     <StyledPaper elevation={0}>
-                        {habilities &&
-                            <Experience habilities={habilities}></Experience>}
+                        <WorkTimeline />
                     </StyledPaper>
 
 
