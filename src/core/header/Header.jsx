@@ -93,7 +93,7 @@ const Header = ({ loginValue, setLogin }) => {
 
   return (
     <>
-      <AppBar position='static'>
+      <AppBar position='static' elevation={0}>
         <Container maxWidth="xl">
           <StyledToolbar>
             <Icons>
@@ -114,17 +114,20 @@ const Header = ({ loginValue, setLogin }) => {
               <Badge badgeContent={4} color="error">
                 <BsMailbox style={{ width: "20px", height: "20px" }} color="action" />
               </Badge>
-              {loginValue ? <BiLogOut style={{ width: "20px", height: "20px" }} onClick={handleLogout} /> : <BiUser style={{ width: "20px", height: "20px" }} onClick={modal} />}
               <Avatar onClick={handleClick} sx={{ width: 30, height: 30 }} alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
             </Icons>
           </StyledToolbar>
           <Menu anchorEl={anchorElm} open={open} onClose={handleClose}
             anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
             transformOrigin={{ vertical: 'top', horizontal: 'right' }} >
-            <MenuItem onClick={handleClose}><Link to='/profile'>Profile</Link></MenuItem>
+            <Link to='/profile'>
+              <MenuItem onClick={handleClose}>Profile</MenuItem>
+            </Link>
             <MenuItem onClick={handleClose}>Balance</MenuItem>
             <Divider />
-            <MenuItem onClick={handleClose}>Logout</MenuItem>
+            <MenuItem onClick={handleClose}>
+            {loginValue ? <BiLogOut style={{ width: "20px", height: "20px" }} onClick={handleLogout} /> : <BiUser style={{ width: "20px", height: "20px" }} onClick={modal} />}
+           </MenuItem>
           </Menu>
         </Container>
       </AppBar >

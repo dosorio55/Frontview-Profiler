@@ -4,8 +4,9 @@ import { BASE_URL } from '../../../../context/api/context'
 
 const StyledBox = styled(Box)(({
     display: "flex",
+    justifyContent: "center",
     // flexDirection: "column",
-    padding: "1.125rem",
+    padding: "0 1.125rem 1.125rem 1.125rem",
     // backgroundColor: "#e3f2fd",
     gap: 15,
 }));

@@ -103,7 +103,7 @@ const Feed = () => {
     const { name, headline, description, habilities, image } = profile
 
     return (
-        <StyledBox flex={10} style={{ margin: "1.5rem" }} borderRadius>
+        <StyledBox flex={10} style={{ margin: "1rem" }} borderRadius>
             {loading ?
                 <CircularProgress />
                 :
