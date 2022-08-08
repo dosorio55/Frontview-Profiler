@@ -51,7 +51,7 @@ const WorkTimeline = () => {
                     <TimelineConnector />
                 </TimelineSeparator>
                 <TimelineContent sx={{ py: '12px', px: 2 }}>
-                    <Typography>Because</Typography>
+                    <Typography>Because it&</Typography>
                 </TimelineContent>
             </TimelineItem>
             <TimelineItem>

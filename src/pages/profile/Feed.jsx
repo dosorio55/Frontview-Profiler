@@ -13,7 +13,13 @@ const StyledBox = styled(Box)(({
     padding: "1.5rem",
     backgroundColor: "#e3f2fd",
     gap: 15,
-    // minHeight: "70%"
+}));
+
+const BoxWithOverflow = styled(Box)(({ theme }) => ({
+    display: "flex",
+    overflow: "auto",
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: "white",
 }));
 
 const ProfileBox = styled(Box)(({
@@ -27,7 +33,6 @@ const ProfileBox = styled(Box)(({
 const GridContainer = styled(Box)(({
     display: "grid",
     gridTemplateColumns: '6fr 3fr 3fr',
-    // gridTemplateRows: '3fr 9fr',
     gap: 15
 }));
 
@@ -37,10 +42,7 @@ const ProjectsGrid = styled(Box)(({
     gridTemplateColumns: '1fr 1fr 1fr',
     padding: "1.125rem",
     paddingBottom: "0.8rem",
-    // gridTemplateRows: '1fr 1fr',
     alignItems: "center",
-    // gridColumn: "span 2",
-    // justifyContent: "center",
     gap: 15
 }));
 
@@ -61,10 +63,7 @@ const Feed = () => {
                 Authorization: `Bearer ${jwtToken}`
             }
         }).then(res => res.json())
-            .then(data => {
-                setProjects(data)
-                console.log(data)
-            })
+            .then(data => setProjects(data))
     };
 
     useEffect(() => {
@@ -87,10 +86,7 @@ const Feed = () => {
                 Authorization: `Bearer ${jwtToken}`
             }
         }).then(res => res.json())
-            .then(data => {
-                setProjects(data)
-                console.log(data)
-            })
+            .then(data => setProjects(data))
     }, [jwtToken]);
 
 
@@ -121,21 +117,25 @@ const Feed = () => {
                                 <Typography variant="h6" component="p" color="initial">
                                     {name}
                                 </Typography>
-                                <Typography variant="body1" component="p" color="initial">
+
+                                <Typography component={'span'} variant={'body2'} color="initial">
                                     <AboutMe description={description} />
                                 </Typography>
                             </div>
                         </ProfileBox>
                     </StyledPaper>
 
-                    <StyledPaper elevation={0}>
-                        {habilities &&
-                            <Experience habilities={habilities}></Experience>}
+                    <StyledPaper elevation={0} sx={{ flexDirection: "column" }}>
+                        <Typography variant="subtitle2" component="p" color="initial">
+                            Skills
+                        </Typography>
+                        <Divider />
+                        <Experience habilities={habilities}></Experience>
+
                     </StyledPaper>
 
                     <StyledPaper elevation={0}>
-                        {habilities &&
-                            <Experience habilities={habilities}></Experience>}
+
                     </StyledPaper>
 
 
@@ -151,13 +151,13 @@ const Feed = () => {
                             )}
                         </ProjectsGrid>
                         <Divider />
-                        <Pagination count={10} variant="outlined" color="secondary"
+                        <Pagination count={3} variant="outlined" color="secondary" size='small'
                             sx={{ display: "flex", justifyContent: "flex-end", p: "0.3rem .3rem .3rem" }} />
                     </Paper>
 
-                    <StyledPaper elevation={0}>
+                    <BoxWithOverflow elevation={0}>
                         <WorkTimeline />
-                    </StyledPaper>
+                    </BoxWithOverflow>
 
 
                 </GridContainer>

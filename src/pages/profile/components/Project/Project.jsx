@@ -37,14 +37,14 @@ const MyWork = ({ project, getProjects, editMode }) => {
                 alt={projectName}
             />
             <CardContent>
-                <Typography variant="body2" color="text.secondary">
+                <Typography component={'span'} variant={'body2'} color="text.secondary">
                     <h3>{projectName}</h3>
                     {/* <p>{description}</p> */}
                 </Typography>
             </CardContent>
             <StyledBox>
-                <Button variant="outlined">GitHub</Button>
-                <Button variant="contained">Live Demo</Button>
+                <Button size='small' variant="outlined">GitHub</Button>
+                <Button size='small' variant="contained">Live Demo</Button>
             </StyledBox>
             {/* {editMode && <button onClick={handleDelete}>delete</button>} */}
         </Card>
