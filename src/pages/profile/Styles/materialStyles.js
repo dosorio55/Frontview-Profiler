@@ -5,5 +5,4 @@ export const StyledPaper = styled(Box)(({ theme }) => ({
     padding: "1.125rem",
     borderRadius: theme.shape.borderRadius,
     backgroundColor: "white",
-    // flexGrow: 1
 }));

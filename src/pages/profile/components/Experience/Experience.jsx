@@ -16,21 +16,35 @@ const StyledBox = styled(Box)(({
     alignItems: "center"
 }));
 
+const BoxContainer = styled(Box)(({
+    display: "flex",
+    flexWrap: "wrap",
+    py: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    minHeight: "5rem"
+}));
+
+
 const Experience = ({ habilities }) => {
+    let skillsGap;
+    habilities?.length > 3 ? skillsGap = 3 : skillsGap = 4;
+
+    console.log(habilities?.length);
 
     return (
-        <Box className="skills_cards" sx={{display:"flex", flexWrap: "wrap", gap: 3, py: 1, justifyContent: "center", alignItems: "center", minHeight: "5rem" }}>
+        <BoxContainer className="skills_cards" sx={{ gap: skillsGap }}>
             {habilities?.map(skill =>
                 <StyledBox key={skill}>
                     <IconBox>
-                        <img src={images[skill]} alt={skill} style={{height: "100%"}}/>
+                        <img src={images[skill]} alt={skill} style={{ height: "100%" }} />
                     </IconBox>
-                    <Typography variant="subtitle2" color="initial">
+                    <Typography variant="span" color="body2">
                         {capitalize(skill)}
                     </Typography>
                 </StyledBox>
             )}
-        </Box>
+        </BoxContainer>
     )
 }
 

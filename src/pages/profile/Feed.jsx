@@ -15,13 +15,6 @@ const StyledBox = styled(Box)(({
     gap: 15,
 }));
 
-const BoxWithOverflow = styled(Box)(({ theme }) => ({
-    display: "flex",
-    overflow: "auto",
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: "white",
-}));
-
 const ProfileBox = styled(Box)(({
     display: "flex",
     flexDirection: 'row',
@@ -155,9 +148,9 @@ const Feed = () => {
                             sx={{ display: "flex", justifyContent: "flex-end", p: "0.3rem .3rem .3rem" }} />
                     </Paper>
 
-                    <BoxWithOverflow elevation={0}>
+                    <StyledPaper elevation={0}>
                         <WorkTimeline />
-                    </BoxWithOverflow>
+                    </StyledPaper>
 
 
                 </GridContainer>
