@@ -1,18 +1,57 @@
 import React from 'react'
-import {BsLinkedin, BsGithub} from 'react-icons/bs'
-import { AiOutlineTwitter } from 'react-icons/ai'
+import { BsFillTelephoneFill } from 'react-icons/bs'
+import images from '../../../../constants/images'
+import { Box, styled, Typography } from '@mui/material';
+
+const IconBox = styled(Box)(({
+  height: 30,
+}));
+
+const BoxContainer = styled(Box)(({
+  display: "flex",
+  alignItems: "center",
+  gap: 10,
+
+}));
 
 const ProfileSocials = () => {
-    return (
+  return (
 
-    <div className='header__socials'>
-    
-        <a href="https://www.linkedin.com/feed/"><BsLinkedin/></a>
-        <a href="https://github.com/dosorio55?tab=repositories"><BsGithub/></a>
-        <a href="https://twitter.com/"><AiOutlineTwitter/></a>
-        {/* <a href="#contact" className='scroll__down'>Scroll Down</a> */}
-
-    </div>
+    <Box
+      sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 1, py: 2, minHeight: "80%" }}>
+      <BoxContainer>
+        <IconBox>
+          <img src={images.github} alt="" style={{ height: "100%" }} />
+        </IconBox>
+        <Typography variant="span" color="body2">
+          dosorio55
+        </Typography>
+      </BoxContainer>
+      <BoxContainer>
+        <IconBox>
+          <img src={images.twitter} alt="" style={{ height: "100%" }} />
+        </IconBox>
+        <Typography variant="span" color="body2">
+          dosorio55
+        </Typography>
+      </BoxContainer>
+      <BoxContainer>
+        <IconBox>
+          <img src={images.linkedin} alt="" style={{ height: "100%" }} />
+        </IconBox>
+        <Typography variant="span" color="body2">
+          diego-osorio-ruiz
+        </Typography>
+      </BoxContainer>
+      <BoxContainer>
+        <IconBox>
+          <img src={images.phone} alt="" style={{ height: "80%" }} />
+        </IconBox>
+        <Typography variant="span" color="body2">
+          55-5555-55
+        </Typography>
+      </BoxContainer>
+    </Box>
   )
 }
 

@@ -32,7 +32,7 @@ const MyWork = ({ project, getProjects, editMode }) => {
         <Card>
             <CardMedia
                 component="img"
-                height="80rem"
+                height="115rem"
                 image={imageLink}
                 alt={projectName}
             />

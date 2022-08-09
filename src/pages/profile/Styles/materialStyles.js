@@ -1,8 +1,8 @@
-import { Box, styled } from "@mui/material";
+import { Box, Paper, styled } from "@mui/material";
 
-export const StyledPaper = styled(Box)(({ theme }) => ({
+export const StyledPaper = styled(Paper)(({ theme }) => ({
     display: "flex",
     padding: "1.125rem",
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: "white",
+    minHeight: "20vh"
 }));

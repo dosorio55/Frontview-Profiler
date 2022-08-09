@@ -1,13 +1,12 @@
 import React from 'react'
 import './Experience.scss'
-import { FaReact } from 'react-icons/fa'
 import { Box, styled, Typography } from '@mui/material'
 import images from '../../../../constants/images'
 
 const capitalize = string => string[0].toUpperCase() + string.slice(1);
 
 const IconBox = styled(Box)(({
-    height: 30,
+    height: 40,
 }));
 
 const StyledBox = styled(Box)(({
@@ -19,7 +18,7 @@ const StyledBox = styled(Box)(({
 const BoxContainer = styled(Box)(({
     display: "flex",
     flexWrap: "wrap",
-    py: 1,
+    marginTop: 10,
     justifyContent: "center",
     alignItems: "center",
     minHeight: "5rem"
@@ -27,10 +26,9 @@ const BoxContainer = styled(Box)(({
 
 
 const Experience = ({ habilities }) => {
+
     let skillsGap;
     habilities?.length > 3 ? skillsGap = 3 : skillsGap = 4;
-
-    console.log(habilities?.length);
 
     return (
         <BoxContainer className="skills_cards" sx={{ gap: skillsGap }}>

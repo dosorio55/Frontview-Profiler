@@ -12,7 +12,7 @@
     height: 1.5rem;
 
     position: relative;
-    z-index: 10;
+    z-index: 1;
 }
 
 .arrow::before {
@@ -24,4 +24,5 @@
     right: -9px;
     transform: rotate(45deg);
     background-color: var(--arrow-color);
+    z-index: -1;
 }
