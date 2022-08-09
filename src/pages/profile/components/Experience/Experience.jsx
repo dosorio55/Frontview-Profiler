@@ -31,9 +31,9 @@ const Experience = ({ habilities }) => {
     habilities?.length > 3 ? skillsGap = 3 : skillsGap = 4;
 
     return (
-        <BoxContainer className="skills_cards" sx={{ gap: skillsGap }}>
+        <BoxContainer className="skills_cards" sx={{ gap: skillsGap, margin: "auto 0", p: 2}}>
             {habilities?.map(skill =>
-                <StyledBox key={skill}>
+                <StyledBox key={skill} flex={1}>
                     <IconBox>
                         <img src={images[skill]} alt={skill} style={{ height: "100%" }} />
                     </IconBox>

@@ -1,5 +1,4 @@
 import React from 'react'
-import { BsFillTelephoneFill } from 'react-icons/bs'
 import images from '../../../../constants/images'
 import { Box, styled, Typography } from '@mui/material';
 
@@ -18,7 +17,7 @@ const ProfileSocials = () => {
   return (
 
     <Box
-      sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 1, py: 2, minHeight: "80%" }}>
+      sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 1, py: 2, minHeight: "80%", margin: "auto" }}>
       <BoxContainer>
         <IconBox>
           <img src={images.github} alt="" style={{ height: "100%" }} />
