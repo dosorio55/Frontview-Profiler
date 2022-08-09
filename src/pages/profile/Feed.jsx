@@ -101,8 +101,8 @@ const Feed = () => {
                 <CircularProgress />
                 :
                 <GridContainer>
-                    <StyledPaper flex={8} elevation={3} sx={{display: 'flex', flexDirection: 'column'}}>
-                        <Typography variant="subtitle2" component="p" color="initial" sx={{display: "block"}}>
+                    <StyledPaper flex={8} elevation={3}>
+                        <Typography variant="subtitle2" component="p" color="initial" sx={{ display: "block" }}>
                             Skills
                         </Typography>
                         <Divider />
@@ -159,6 +159,10 @@ const Feed = () => {
                     </Paper>
 
                     <StyledPaper elevation={3} sx={{ minHeight: "54vh" }}>
+                        <Typography variant="subtitle2" component="p" color="initial" sx={{ display: "block" }}>
+                            Skills
+                        </Typography>
+                        <Divider />
                         <WorkTimeline />
                     </StyledPaper>
 
