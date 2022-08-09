@@ -1,28 +1,50 @@
 import React from 'react'
 import './Experience.scss'
 import { FaReact } from 'react-icons/fa'
+import { Box, styled, Typography } from '@mui/material'
+import images from '../../../../constants/images'
+
+const capitalize = string => string[0].toUpperCase() + string.slice(1);
+
+const IconBox = styled(Box)(({
+    height: 30,
+}));
+
+const StyledBox = styled(Box)(({
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center"
+}));
+
+const BoxContainer = styled(Box)(({
+    display: "flex",
+    flexWrap: "wrap",
+    py: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    minHeight: "5rem"
+}));
+
 
 const Experience = ({ habilities }) => {
+    let skillsGap;
+    habilities?.length > 3 ? skillsGap = 3 : skillsGap = 4;
+
+    console.log(habilities?.length);
+
     return (
-        <section className='skills__container' id='work'>
-            <h5>The Skills I Have</h5>
-            <h2>My Expertise</h2>
-
-            <div className="container skills__container">
-                <div  className='skills__content'>
-                    <div className="skills_cards">
-                        {habilities.map((skill) =>
-
-                            <article key={skill} className='skills_card'>
-                                <FaReact className='skills_icon' />
-                                <h5>{skill}</h5>
-                            </article>
-
-                        )}
-                    </div>
-                </div>
-            </div>
-        </section>
+        <BoxContainer className="skills_cards" sx={{ gap: skillsGap }}>
+            {habilities?.map(skill =>
+                <StyledBox key={skill}>
+                    <IconBox>
+                        <img src={images[skill]} alt={skill} style={{ height: "100%" }} />
+                    </IconBox>
+                    <Typography variant="span" color="body2">
+                        {capitalize(skill)}
+                    </Typography>
+                </StyledBox>
+            )}
+        </BoxContainer>
     )
 }
 

@@ -1,16 +1,18 @@
+import { Button } from '@mui/material'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './Home.scss'
+import images from '../../constants/images'
 
 
 const Home = () => {
+
   return (
-    <div className='homeConteiner'>
-      <div className='homeConteiner__title'>
+    <div>
+      <div>
         <h1>Reach all your contacts in one place and build your PROFILE.</h1>
       </div>
-      <div className='homeConteiner__start'>
-        <Link to='/add-profile' className='btn btn-primary'>get started</Link>
+      <div>
+        <Link to='/add-profile'>get started</Link>
         <input type="text" placeholder='search for network' />
       </div>
     </div>
