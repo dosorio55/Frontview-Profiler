@@ -6,6 +6,8 @@ import Experience from './components/Experience/Experience';
 import Project from './components/Project/Project';
 import WorkTimeline from './components/WorkTimeline';
 import { StyledPaper } from './Styles/materialStyles';
+import images from '../../constants/images'
+import ProfileSocials from './components/ProfileSocials/ProfileSocials';
 
 const StyledBox = styled(Box)(({
     display: "flex",
@@ -20,7 +22,8 @@ const ProfileBox = styled(Box)(({
     flexDirection: 'row',
     gap: 15,
     alignItems: 'center',
-    justifyContent: "center"
+    justifyContent: "center",
+    minWidth: "90%"
 }));
 
 const GridContainer = styled(Box)(({
@@ -99,8 +102,15 @@ const Feed = () => {
                 <CircularProgress />
                 :
                 <GridContainer>
-                    <StyledPaper flex={8} elevation={0}>
-                        <ProfileBox>
+                    <StyledPaper flex={8} elevation={3} sx={{ position: 'relative' }}>
+                        <Typography variant="subtitle2" component="p" color="initial" sx={{ display: "block" }}>
+                            About Me
+                        </Typography>
+                        <Divider />
+                        <ProfileBox
+                        sx={{margin: "auto"}}
+                            // sx={{ position: 'absolute', top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
+                        >
                             <Avatar
                                 alt={name}
                                 src={image}
@@ -118,7 +128,7 @@ const Feed = () => {
                         </ProfileBox>
                     </StyledPaper>
 
-                    <StyledPaper elevation={0} sx={{ flexDirection: "column" }}>
+                    <StyledPaper elevation={3} sx={{ flexDirection: "column" }}>
                         <Typography variant="subtitle2" component="p" color="initial">
                             Skills
                         </Typography>
@@ -127,13 +137,18 @@ const Feed = () => {
 
                     </StyledPaper>
 
-                    <StyledPaper elevation={0}>
-
+                    <StyledPaper elevation={3} sx={{ flexDirection: "column" }}>
+                        <Typography variant="subtitle2" component="p" color="initial">
+                            Contact Me
+                        </Typography>
+                        <Divider />
+                        <ProfileSocials />
                     </StyledPaper>
 
 
-                    <Paper sx={{ gridColumn: "span 2" }}>
-                        <ProjectsGrid container direction="row" spacing={2}>
+                    <Paper sx={{ gridColumn: "span 2" }} elevation={3}>
+                        
+                        <ProjectsGrid container direction="row" spacing={2} sx={{ height: "87%" }}>
                             {projects && projects.map(project =>
                                 <Project
                                     key={project._id}
@@ -144,11 +159,18 @@ const Feed = () => {
                             )}
                         </ProjectsGrid>
                         <Divider />
+                        {/* <Typography variant="subtitle2" component="p" color="initial">
+                            Proyects
+                        </Typography> */}
                         <Pagination count={3} variant="outlined" color="secondary" size='small'
                             sx={{ display: "flex", justifyContent: "flex-end", p: "0.3rem .3rem .3rem" }} />
                     </Paper>
 
-                    <StyledPaper elevation={0}>
+                    <StyledPaper elevation={3} sx={{ minHeight: "54vh" }}>
+                        <Typography variant="subtitle2" component="p" color="initial" sx={{ display: "block" }}>
+                            Timeline
+                        </Typography>
+                        <Divider />
                         <WorkTimeline />
                     </StyledPaper>
 
