@@ -4,7 +4,7 @@ import "./ArrowTimeline.scss"
 
 const GridContainer = styled(Box)(({
     display: "grid",
-    gridTemplateColumns: '4fr .3fr 6fr',
+    gridTemplateColumns: '4fr .1fr 6fr',
     gap: 2
 }));
 
@@ -21,10 +21,12 @@ const GridContainer = styled(Box)(({
 const WorkTimeline = () => {
     return (
         <GridContainer>
-            <div className='arrow'>
-                <Typography color="secondary">
-                    2022
-                </Typography>
+            <div>
+                <div className='arrow'>
+                    <Typography color="secondary">
+                        2022
+                    </Typography>
+                </div>
             </div>
             <Divider orientation="vertical" />
             <Box sx={{ px: 1 }}>
