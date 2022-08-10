@@ -6,7 +6,7 @@ import { BiLogOut, BiSearchAlt, BiUser } from 'react-icons/bi'
 import { BsMailbox } from 'react-icons/bs'
 import { AiFillHome } from 'react-icons/ai'
 import './Header.scss';
-import { alpha, AppBar, Avatar, Badge, Box, Button, Container, Divider, InputBase, Menu, MenuItem, styled, Toolbar } from '@mui/material';
+import { alpha, AppBar, Avatar, Badge, Box, Container, Divider, InputBase, Menu, MenuItem, styled, Toolbar } from '@mui/material';
 
 const StyledToolbar = styled(Toolbar)({
   display: "flex",
@@ -82,7 +82,7 @@ const Header = ({ loginValue, setLogin }) => {
 
   const navigate = useNavigate()
 
-  const modal = useContext(ModalContext);
+  const handleModal = useContext(ModalContext);
   const dispatch = useAuthDispatch()
 
   const handleLogout = () => {
@@ -126,7 +126,7 @@ const Header = ({ loginValue, setLogin }) => {
             <MenuItem onClick={handleClose}>Balance</MenuItem>
             <Divider />
             <MenuItem onClick={handleClose}>
-            {loginValue ? <BiLogOut style={{ width: "20px", height: "20px" }} onClick={handleLogout} /> : <BiUser style={{ width: "20px", height: "20px" }} onClick={modal} />}
+            {loginValue ? <BiLogOut style={{ width: "20px", height: "20px" }} onClick={handleLogout} /> : <BiUser style={{ width: "20px", height: "20px" }} onClick={handleModal} />}
            </MenuItem>
           </Menu>
         </Container>

@@ -3,17 +3,27 @@ import { ModalContext } from '../../App';
 import { loginUser, signIn, useAuthDispatch } from '../../context/auth';
 import './LoginModal.scss'
 import { useNavigate } from "react-router-dom";
+import { AiFillCloseCircle } from 'react-icons/ai';
+import { Box, Button, Divider, styled, TextField, Typography } from '@mui/material';
+
+const StyledBox = styled(Box)(({
+  display: "flex",
+  flexDirection: "column",
+  // gap: 30,
+  margin: "0 auto",
+  minWidth: "90%"
+}));
 
 
 const LoginModal = ({ modalValue, setLogin }) => {
 
   const handleModal = useContext(ModalContext);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const formInitialState = {
     email: "",
     password: ""
-  }
+  };
 
   const dispatch = useAuthDispatch();
   // const userState = useGetState();
@@ -23,13 +33,12 @@ const LoginModal = ({ modalValue, setLogin }) => {
 
   const handleBtnLogin = () => {
     setLoginBtn(!loginBtn)
-  }
+  };
 
   const handleLoginForm = (event) => {
     const { name, value } = event.target;
-    setLoginForm({ ...loginForm, [name]: value })
-    // console.log(loginForm)
-  }
+    setLoginForm({ ...loginForm, [name]: value });
+  };
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -46,45 +55,37 @@ const LoginModal = ({ modalValue, setLogin }) => {
     } catch (error) {
       console.log(error);
     }
-    console.log(loginForm)
-  }
+  };
 
 
   return (
     <div className='container'>
       <div className={modalValue ? 'modalContainer modalContainer--active' : 'modalContainer'}>
-        <button onClick={handleModal}>handle</button>
+        <AiFillCloseCircle className='modalContainer__close' onClick={handleModal} />
+          <Typography component={'span'} variant={'h6'} sx={{margin: "auto"}}>
+            Login
+          </Typography>
 
-        <div>
-          <h2 className="modalContainer__item">login</h2>
-        </div>
-        <div className="modalContainer__line"></div>
-
-        <label htmlFor="email">
-          <p>email</p>
-          <input
-            className="modalContainer__item"
+        <StyledBox >
+          <TextField
+            id="outlined-required"
             name='email'
-            type="text"
-            id='email'
-            value={loginForm.email}
+            label="email"
+            sx={{ margin: ".5rem 0" }}
+            // defaultValue="email@example.com"
             onChange={handleLoginForm}
-
           />
-        </label>
-        <label htmlFor="password">
-          <p>password</p>
-          <input
-            className="modalContainer__item"
+          <TextField
+            id="outlined-password-input"
+            label="Password"
+            sx={{ margin: ".5rem 0" }}
             name='password'
             type="password"
-            id='password'
-            value={loginForm.password}
+            autoComplete="current-password"
             onChange={handleLoginForm}
-
           />
-        </label>
-        <button className="modalContainer__item modalContainer__btn" onClick={handleLogin}>{loginBtn ? 'create account' : "login"}</button>
+        </StyledBox>
+        <Button size="large" variant="contained" sx={{ margin: "2rem auto"}} onClick={handleLogin}>{loginBtn ? 'create account' : "login"}</Button>
         <p onClick={handleBtnLogin}>{loginBtn ? 'i already have an account' : 'Create an account'}</p>
       </div>
       <div className="overlay"></div>
