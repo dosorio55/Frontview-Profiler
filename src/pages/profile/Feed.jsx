@@ -108,8 +108,8 @@ const Feed = () => {
                         </Typography>
                         <Divider />
                         <ProfileBox
-                        sx={{margin: "auto"}}
-                            // sx={{ position: 'absolute', top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
+                            sx={{ margin: "auto" }}
+                        // sx={{ position: 'absolute', top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
                         >
                             <Avatar
                                 alt={name}
@@ -147,7 +147,7 @@ const Feed = () => {
 
 
                     <Paper sx={{ gridColumn: "span 2" }} elevation={3}>
-                        
+
                         <ProjectsGrid container direction="row" spacing={2} sx={{ height: "87%" }}>
                             {projects && projects.map(project =>
                                 <Project
