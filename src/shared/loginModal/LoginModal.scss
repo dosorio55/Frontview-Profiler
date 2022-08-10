@@ -7,10 +7,11 @@
     width: 402px;
     border-radius: 5px;
     background-color: #dadada;
+
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    // justify-content: center;
+    // align-items: center;
     text-transform: uppercase;
     z-index: 1;
 
@@ -19,12 +20,13 @@
         
     }
 
-    &__x{
-        width: 10px;
-        height: 10px;
-        top: 4%;
-        right: 4%;
+    &__close{
+        // width: 10px;
+        height: 30px;
+        top: 1%;
+        right: 2%;
         position: absolute;
+        cursor: pointer;
     }
 
 
