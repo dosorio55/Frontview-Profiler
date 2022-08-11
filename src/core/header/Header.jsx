@@ -14,7 +14,7 @@ const StyledToolbar = styled(Toolbar)({
 });
 
 //Search Input
-const Search = styled('div')(({ theme }) => ({
+/* const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
   backgroundColor: alpha(theme.palette.common.white, 0.15),
@@ -54,7 +54,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
       },
     },
   },
-}));
+})); */
 
 //Icons
 
@@ -101,7 +101,7 @@ const Header = ({ loginValue, setLogin }) => {
               {/* {loginValue && <Link to='/add-profile'>add profile</Link>} */}
               <Link to='/network'>network</Link>
             </Icons>
-            <Search>
+    {/*         <Search>
               <SearchIconWrapper>
                 <BiSearchAlt />
               </SearchIconWrapper>
@@ -109,7 +109,7 @@ const Header = ({ loginValue, setLogin }) => {
                 placeholder="Search…"
                 inputProps={{ 'aria-label': 'search' }}
               />
-            </Search>
+            </Search> */}
             <Icons id='demo-positioned-menu'>
               <Badge badgeContent={4} color="error">
                 <BsMailbox style={{ width: "20px", height: "20px" }} color="action" />

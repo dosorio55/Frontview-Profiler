@@ -102,15 +102,12 @@ const Feed = () => {
                 <CircularProgress />
                 :
                 <GridContainer>
-                    <StyledPaper flex={8} elevation={3} sx={{ position: 'relative' }}>
+                    <StyledPaper flex={8} elevation={3}>
                         <Typography variant="subtitle2" component="p" color="initial" sx={{ display: "block" }}>
                             About Me
                         </Typography>
                         <Divider />
-                        <ProfileBox
-                            sx={{ margin: "auto" }}
-                        // sx={{ position: 'absolute', top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
-                        >
+                        <ProfileBox sx={{ margin: "auto" }}>
                             <Avatar
                                 alt={name}
                                 src={image}
@@ -183,8 +180,8 @@ const Feed = () => {
 }
 
 export default Feed
-{/*{editMode &&
+/*{editMode &&
 <article className='portfolio__item'>
 <p className='btn parrafo' onClick={addProjectModal}>add a new project</p>
 </article>
-} */}
+} */
