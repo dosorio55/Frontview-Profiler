@@ -9,9 +9,13 @@ import { Box, Button, Divider, styled, TextField, Typography } from '@mui/materi
 const StyledBox = styled(Box)(({
   display: "flex",
   flexDirection: "column",
-  // gap: 30,
   margin: "0 auto",
-  minWidth: "90%"
+  minWidth: "90%",
+  gap: 20,
+}));
+
+const StyledTextField = styled(TextField)(({
+  backgroundColor: '#fafafa'
 }));
 
 
@@ -21,8 +25,8 @@ const LoginModal = ({ modalValue, setLogin }) => {
   const navigate = useNavigate();
 
   const formInitialState = {
-    email: "",
-    password: ""
+    email: "leanejoye@leane.com",
+    password: "12345"
   };
 
   const dispatch = useAuthDispatch();
@@ -37,7 +41,7 @@ const LoginModal = ({ modalValue, setLogin }) => {
 
   const handleLoginForm = (event) => {
     const { name, value } = event.target;
-    setLoginForm({ ...loginForm, [name]: value });
+    setLoginForm(formPrevState => ({ ...formPrevState, [name]: value }));
   };
 
   const handleLogin = async (e) => {
@@ -62,31 +66,41 @@ const LoginModal = ({ modalValue, setLogin }) => {
     <div className='container'>
       <div className={modalValue ? 'modalContainer modalContainer--active' : 'modalContainer'}>
         <AiFillCloseCircle className='modalContainer__close' onClick={handleModal} />
-          <Typography component={'span'} variant={'h6'} sx={{margin: "auto"}}>
-            Login
+        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', py: '2rem' }}>
+          <Typography variant="h6" component="p" color="initial">
+
+            HELLO! Welcome Back
           </Typography>
+          <Typography variant="subtitle2" component="p" color="GrayText">
+            Enter your credentials to continue
+          </Typography>
+        </Box>
 
         <StyledBox >
-          <TextField
+          <StyledTextField
             id="outlined-required"
             name='email'
             label="email"
-            sx={{ margin: ".5rem 0" }}
-            // defaultValue="email@example.com"
             onChange={handleLoginForm}
+            value={loginForm.email}
           />
-          <TextField
+          <StyledTextField
             id="outlined-password-input"
             label="Password"
-            sx={{ margin: ".5rem 0" }}
             name='password'
             type="password"
             autoComplete="current-password"
             onChange={handleLoginForm}
+          // value={loginForm.password}
           />
+          <Button size="large" variant="contained" onClick={handleLogin}>{loginBtn ? 'create account' : "login"}</Button>
         </StyledBox>
-        <Button size="large" variant="contained" sx={{ margin: "2rem auto"}} onClick={handleLogin}>{loginBtn ? 'create account' : "login"}</Button>
-        <p onClick={handleBtnLogin}>{loginBtn ? 'i already have an account' : 'Create an account'}</p>
+        <Box sx={{ px: '2rem', textAlign: 'center' }}>
+          <Divider />
+          <Typography variant="body1" component="p" color="initial" onClick={handleBtnLogin} sx={{p: "1rem", cursor: 'pointer'}}>
+            {loginBtn ? 'i already have an account' : 'Create an account'}
+          </Typography>
+        </Box>
       </div>
       <div className="overlay"></div>
     </div>

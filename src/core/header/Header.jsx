@@ -13,49 +13,6 @@ const StyledToolbar = styled(Toolbar)({
   justifyContent: "space-around"
 });
 
-//Search Input
-/* const Search = styled('div')(({ theme }) => ({
-  position: 'relative',
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  marginLeft: 0,
-  width: '100%',
-  [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(1),
-    width: 'auto',
-  },
-}));
-
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: '100%',
-  position: 'absolute',
-  pointerEvents: 'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
-  '& .MuiInputBase-input': {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      width: '7rem',
-      '&:focus': {
-        width: '25rem',
-      },
-    },
-  },
-})); */
-
 //Icons
 
 const Icons = styled(Box)(({ theme }) => ({
@@ -101,15 +58,6 @@ const Header = ({ loginValue, setLogin }) => {
               {/* {loginValue && <Link to='/add-profile'>add profile</Link>} */}
               <Link to='/network'>network</Link>
             </Icons>
-    {/*         <Search>
-              <SearchIconWrapper>
-                <BiSearchAlt />
-              </SearchIconWrapper>
-              <StyledInputBase
-                placeholder="Search…"
-                inputProps={{ 'aria-label': 'search' }}
-              />
-            </Search> */}
             <Icons id='demo-positioned-menu'>
               <Badge badgeContent={4} color="error">
                 <BsMailbox style={{ width: "20px", height: "20px" }} color="action" />
