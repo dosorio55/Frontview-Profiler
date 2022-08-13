@@ -8,12 +8,14 @@ import './Network.scss'
 const StyledBox = styled(Box)(({
   backgroundColor: "#e3f2fd",
   maxWidth: "1200px",
+  // width: "calc(100% - 70px)",
   margin: "1.125rem auto",
   padding: "1.5rem"
 }));
 
 const UsersBox = styled(Box)(({
   display: "flex",
+  justifyContent: "center",
   flexWrap: "wrap",
   gap: 25,
   padding: "1.125rem",
