@@ -8,8 +8,7 @@ import './NetworkProfile.scss'
 
 const NetworkProfile = () => {
 
-    const { _id } = useParams()
-
+    const { _id } = useParams();
 
     const [profile, setProfile] = useState({});
     const [loading, setLoading] = useState(false);

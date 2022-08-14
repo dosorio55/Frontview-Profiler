@@ -7,7 +7,8 @@ import { Link } from 'react-router-dom'
 import './NetworkItem.scss'
 
 const StyledBox = styled(Box)(({ theme }) => ({
-  backgroundColor: "#fafafa",
+  // backgroundColor: "#fafafa",
+  backgroundColor: theme.palette.grey[50],
   flex: "1",
   borderRadius: theme.shape.borderRadius,
   cursor: "pointer",

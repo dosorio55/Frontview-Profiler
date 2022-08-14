@@ -1,12 +1,13 @@
 import { alpha, Box, Divider, InputBase, Pagination, Paper, styled, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import { BiSearchAlt } from 'react-icons/bi';
+import { useParams } from 'react-router-dom';
 import { BASE_URL } from '../../context/api/context';
 import NetworkItem from './components/NetworkItem';
 import './Network.scss'
 
-const StyledBox = styled(Box)(({
-  backgroundColor: "#e3f2fd",
+const StyledBox = styled(Box)(({ theme }) => ({
+  backgroundColor: theme.palette.primary.light,
   maxWidth: "1200px",
   // width: "calc(100% - 70px)",
   margin: "1.125rem auto",
@@ -66,6 +67,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 const Network = () => {
+
+  const params =  useParams()
+  console.log(params);
 
 
   const [profiles, setProfiles] = useState([]);
