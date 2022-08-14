@@ -12,11 +12,11 @@ const itemData = [
   //   title: 'Books',
   // },
   {
-    img: 'https://images.unsplash.com/photo-1523413651479-597eb2da0ad6',
+    img: 'https://images.unsplash.com/photo-1517070208541-6ddc4d3efbcb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
     title: 'Sink',
   },
   {
-    img: 'https://images.unsplash.com/photo-1563298723-dcfebaa392e3',
+    img: 'https://images.unsplash.com/photo-1508921340878-ba53e1f016ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
     title: 'Kitchen',
   },
   // {
@@ -24,7 +24,7 @@ const itemData = [
   //   title: 'Blinds',
   // },
   {
-    img: 'https://images.unsplash.com/photo-1574180045827-681f8a1a9622',
+    img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80',
     title: 'Chairs',
   },
   // {
@@ -32,11 +32,11 @@ const itemData = [
   //   title: 'Laptop',
   // },
   {
-    img: 'https://images.unsplash.com/photo-1481277542470-605612bd2d61',
-    title: 'Doors',
+    img: 'https://images.unsplash.com/photo-1530268729831-4b0b9e170218?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+    title: 'Boy profile',
   },
   {
-    img: 'https://images.unsplash.com/photo-1517487881594-2787fef5ebf7',
+    img: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80',
     title: 'Coffee',
   },
   // {
@@ -48,17 +48,24 @@ const itemData = [
   //   title: 'Candle',
   // },
   {
-    img: 'https://images.unsplash.com/photo-1519710164239-da123dc03ef4',
+    img: 'https://images.unsplash.com/photo-1596380671736-dda83e0d4ee5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTAxfHxvdXRkb29ycyUyMG1lZXRpbmd8ZW58MHwxfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
     title: 'Coffee table',
   }
 ];
 
 const StyledBox = styled(Box)(({
   display: 'flex',
-  // justifyContent: 'center',
+  flexWrap: 'wrap',
+  justifyContent: 'center',
   alignItems: 'center',
   maxWidth: '1200px',
   margin: "7rem auto"
+}));
+
+const BoxButton = styled(Box)(({
+  display: 'flex',
+  marginTop: '35px',
+  gap: 15
 }));
 
 
@@ -66,16 +73,17 @@ const Home = () => {
 
   return (
     <StyledBox>
-      <Box sx={{ display: 'flex', flexDirection: 'column', margin: '50px' }}>
-        <Typography variant="h2" component="p" color="initial" sx={{fontWeight: 'bold', display: 'inline'}}>
-
-        Reach all your contacts in one place and build your profile with
-          WINDVIEW
+      <Box flex={1} sx={{ display: 'flex', flexDirection: 'column', margin: '50px' }}>
+        <Typography display='inline' variant="h2" component="h2" color="initial">
+          Reach all your contacts in one place and build your profile with
+          <Typography display='inline' variant="h2" component="span" color="initial" sx={{ fontWeight: 'bold', color: 'secondary.main' }}>
+            &nbsp;WINDVIEW
+          </Typography>
         </Typography>
-        <Box sx={{my: '2rem'}}>
+        <BoxButton>
           <Button variant='contained' color='secondary'>get started</Button>
-          <Button variant='text' color='secondary'>get started</Button>
-        </Box>
+          <Button variant='outlined' color='primary'>Browse Network</Button>
+        </BoxButton>
       </Box>
       <Box>
         <Box sx={{ margin: '0 auto', width: 500, height: 450 }}>
