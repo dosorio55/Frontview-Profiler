@@ -7,7 +7,7 @@ import { BsMailbox } from 'react-icons/bs'
 import { AiFillHome } from 'react-icons/ai'
 import './Header.scss';
 import images from '../../constants/images'
-import { AppBar, Avatar, Badge, Box, Container, Divider, InputBase, Menu, MenuItem, styled, Toolbar, Typography } from '@mui/material';
+import { AppBar, Avatar, Badge, Box, Button, Container, Divider, InputBase, Menu, MenuItem, styled, Toolbar, Typography } from '@mui/material';
 
 const StyledToolbar = styled(Toolbar)({
   display: "flex",
@@ -63,23 +63,26 @@ const Header = ({ loginValue, setLogin }) => {
             <LogoBox sx={{ pr: ".5rem" }}>
               <img src={images.logo} alt="logo" style={{ height: "100%" }} />
             </LogoBox>
-            <Typography variant="h6" component="h1" color="initial" sx={{fontWeight: 'bold', mt: "4px"}}>
+            <Typography variant="h6" component="h1" color="initial" sx={{ fontWeight: 'bold', mt: "4px" }}>
               WINDVIEW
             </Typography>
           </Box>
 
 
           <Icons>
+            {/* {loginValue && <Link to='/add-profile'>add profile</Link>} */}
             <Link to='/'>
-              {/* <AiFillHome /> */}
               Home
             </Link>
-            {/* {loginValue && <Link to='/add-profile'>add profile</Link>} */}
-            <Link to='/network'>network</Link>
-            <Badge badgeContent={4} color="error">
+            <Link to='/'>
+              Register
+            </Link>
+            {loginValue && <Link to='/network'>Network</Link>}
+            {/*             <Badge badgeContent={4} color="error">
               <BsMailbox style={{ width: "20px", height: "20px" }} color="action" />
-            </Badge>
-            <Avatar onClick={handleClick} sx={{ width: 30, height: 30, cursor: 'pointer' }} alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+            </Badge> */}
+            {loginValue ? <Avatar onClick={handleClick} sx={{ width: 30, height: 30, cursor: 'pointer' }} alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+              : <Button variant='contained' onClick={handleModal}>Sign Up</Button>}
             <Menu anchorEl={anchorElm} open={open} onClose={handleClose}
               anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
               transformOrigin={{ vertical: 'top', horizontal: 'right' }} >
@@ -89,7 +92,7 @@ const Header = ({ loginValue, setLogin }) => {
               <MenuItem onClick={handleClose}>Balance</MenuItem>
               <Divider />
               <MenuItem onClick={handleClose}>
-                {loginValue ? <BiLogOut style={{ width: "20px", height: "20px" }} onClick={handleLogout} /> : <BiUser style={{ width: "20px", height: "20px" }} onClick={handleModal} />}
+                {loginValue ? <BiLogOut style={{ width: "20px", height: "20px" }} onClick={handleLogout} /> : <BiUser style={{ width: "20px", height: "20px" }}/>}
               </MenuItem>
             </Menu>
           </Icons>
