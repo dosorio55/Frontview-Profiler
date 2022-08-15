@@ -1,6 +1,7 @@
 * {
   margin: 0;
   text-decoration: none;
+  list-style: none;
 
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -9,13 +10,8 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-//svg ------------------------------------------
-svg {
-  height: 90px;
-  width: calc(110% + 1.3px);
-  transform: rotateX(180deg);
-}
+:root {
+  --theme-color-primary: #1e88e5;
+  --theme-color-secondary: #5e35b1;
 
-.shape-fill {
-  fill: red;
 }
