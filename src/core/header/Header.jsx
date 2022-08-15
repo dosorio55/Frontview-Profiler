@@ -2,17 +2,17 @@ import React, { useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { ModalContext } from '../../App';
 import { logout, useAuthDispatch } from '../../context/auth';
-import { BiLogOut, BiSearchAlt, BiUser } from 'react-icons/bi'
-import { BsMailbox } from 'react-icons/bs'
-import { AiFillHome } from 'react-icons/ai'
+import { BiLogOut, BiUser } from 'react-icons/bi'
 import './Header.scss';
 import images from '../../constants/images'
-import { AppBar, Avatar, Badge, Box, Button, Container, Divider, InputBase, Menu, MenuItem, styled, Toolbar, Typography } from '@mui/material';
+import { AppBar, Avatar, Badge, Box, Button, Divider, Menu, MenuItem, styled, Toolbar, Typography } from '@mui/material';
 
 const StyledToolbar = styled(Toolbar)({
   display: "flex",
-  justifyContent: "space-around",
-  // maxWidth: '1200px',
+  alignItems: 'center',
+  width: 'calc(100% - 74px)',
+  justifyContent: 'space-between',
+  maxWidth: '1200px',
   // margin: '0 auto'
 });
 
@@ -55,8 +55,7 @@ const Header = ({ loginValue, setLogin }) => {
   }
 
   return (
-    <>
-      <AppBar position='static' elevation={0} sx={{ backgroundColor: 'common.white', borderBottom: "1px solid rgb(218, 218, 218)" }}>
+  <AppBar position='static' elevation={0} sx={{display: 'flex', alignItems: 'center', backgroundColor: 'common.white', borderBottom: "1px solid rgb(218, 218, 218)" }}>
         {/* <Container maxWidth="xl"> */}
         <StyledToolbar>
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
@@ -92,14 +91,13 @@ const Header = ({ loginValue, setLogin }) => {
               <MenuItem onClick={handleClose}>Balance</MenuItem>
               <Divider />
               <MenuItem onClick={handleClose}>
-                {loginValue ? <BiLogOut style={{ width: "20px", height: "20px" }} onClick={handleLogout} /> : <BiUser style={{ width: "20px", height: "20px" }}/>}
+                {loginValue ? <BiLogOut style={{ width: "20px", height: "20px" }} onClick={handleLogout} /> : <BiUser style={{ width: "20px", height: "20px" }} />}
               </MenuItem>
             </Menu>
           </Icons>
         </StyledToolbar>
         {/* </Container> */}
       </AppBar >
-    </>
   )
 }
 

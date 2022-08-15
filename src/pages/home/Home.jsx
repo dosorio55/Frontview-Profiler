@@ -58,7 +58,9 @@ const StyledBox = styled(Box)(({
   flexWrap: 'wrap',
   justifyContent: 'center',
   alignItems: 'center',
+  gap: 70,
   maxWidth: '1200px',
+  width: 'calc(100% - 74px)',
   margin: "7rem auto"
 }));
 
@@ -73,7 +75,7 @@ const Home = () => {
 
   return (
     <StyledBox>
-      <Box flex={1} sx={{ display: 'flex', flexDirection: 'column', margin: '50px' }}>
+      <Box flex={1} sx={{ display: 'flex', flexDirection: 'column' }}>
         <Typography display='inline' variant="h2" component="h2" color="initial">
           Reach all your contacts in one place and build your profile with
           <Typography display='inline' variant="h2" component="span" color="initial" sx={{ fontWeight: 'bold', color: 'secondary.main' }}>
@@ -88,7 +90,7 @@ const Home = () => {
       <Box>
         <Box sx={{ margin: '0 auto', width: 500, height: 450 }}>
           <ImageList variant="masonry" cols={3} gap={8}>
-            {itemData.map((item) => (
+            {itemData.map(item => (
               <ImageListItem key={item.img}>
                 <img
                   src={`${item.img}?w=248&fit=crop&auto=format`}
