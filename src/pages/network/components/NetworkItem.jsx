@@ -16,7 +16,7 @@ const StyledBox = styled(Box)(({ theme }) => ({
   padding: "1.5rem",
   transition: { duration: theme.transitions.duration.standard },
   border: "1px solid rgb(218, 218, 218)",
-  
+
   '&:hover': {
     border: "1px solid rgb(33, 150, 243)"
   }
@@ -59,38 +59,15 @@ const NetworkItem = ({ networkItem }) => {
       </Box>
 
       <Box sx={{ display: "flex", gap: "1rem", pt: "1rem" }}>
-
-        <StyledButton variant="contained" size="large"
-          sx={{
-            backgroundColor: "#4267b2",
-            '&:hover': {
-              color: "#4267b2"
-            }
-          }} >
+        <StyledButton variant="contained" size="large" sx={{ backgroundColor: "#4267b2", '&:hover': { color: "#4267b2" } }} >
           <BsFacebook className='facebook-icon' />
         </StyledButton>
-        <StyledButton variant="contained" size="large"
-          sx={{
-            backgroundColor: "#1da1f2",
-
-            '&:hover': {
-              color: "#1da1f2"
-            }
-          }} >
+        <StyledButton variant="contained" size="large" sx={{ backgroundColor: "#1da1f2", '&:hover': { color: "#1da1f2" } }} >
           <CgProfile className='profile-icon' />
         </StyledButton>
-        <StyledButton variant="contained" size="large"
-          sx={{
-            backgroundColor: "#0e76a8",
-
-            '&:hover': {
-              color: "#0e76a8"
-            }
-          }} >
-
+        <StyledButton variant="contained" size="large" sx={{ backgroundColor: "#0e76a8", '&:hover': { color: "#0e76a8" } }} >
           <BsLinkedin className='linkedIn-icon' />
         </StyledButton>
-
       </Box>
 
     </StyledBox>
