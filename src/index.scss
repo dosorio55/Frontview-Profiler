@@ -9,7 +9,13 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */
+//svg ------------------------------------------
+svg {
+  height: 90px;
+  width: calc(110% + 1.3px);
+  transform: rotateX(180deg);
+}
+
+.shape-fill {
+  fill: red;
+}
