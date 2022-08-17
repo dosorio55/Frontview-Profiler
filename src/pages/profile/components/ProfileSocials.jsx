@@ -1,5 +1,5 @@
 import React from 'react'
-import images from '../../../../constants/images'
+import images from '../../../constants/images'
 import { Box, styled, Typography } from '@mui/material';
 
 const IconBox = styled(Box)(({
