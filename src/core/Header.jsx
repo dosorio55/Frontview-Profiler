@@ -1,10 +1,9 @@
 import React, { useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { ModalContext } from '../../App';
-import { logout, useAuthDispatch } from '../../context/auth';
+import { ModalContext } from '../App';
+import { logout, useAuthDispatch } from '../context/auth';
 import { BiLogOut, BiUser } from 'react-icons/bi'
-import './Header.scss';
-import images from '../../constants/images'
+import images from '../constants/images'
 import { AppBar, Avatar, Badge, Box, Button, Divider, Menu, MenuItem, styled, Toolbar, Typography } from '@mui/material';
 
 const StyledToolbar = styled(Toolbar)({
@@ -13,7 +12,6 @@ const StyledToolbar = styled(Toolbar)({
   width: 'calc(100% - 74px)',
   justifyContent: 'space-between',
   maxWidth: '1200px',
-  // margin: '0 auto'
 });
 
 //Icons
@@ -25,13 +23,18 @@ const Icons = styled(Box)(({
 }));
 
 const LogoBox = styled(Box)(({
-  height: 30,
+  height: 30
 }));
 
 const Header = ({ loginValue, setLogin }) => {
 
   const [anchorElm, setAnchorElm] = useState(null);
   const [open, setOpen] = useState(false);
+
+  const navigate = useNavigate();
+
+  const handleModal = useContext(ModalContext);
+  const dispatch = useAuthDispatch();
 
   const handleClose = () => {
     setAnchorElm(null);
@@ -41,24 +44,20 @@ const Header = ({ loginValue, setLogin }) => {
   const handleClick = (e) => {
     setAnchorElm(e.currentTarget)
     setOpen(true)
-  }
+  };
 
-  const navigate = useNavigate()
-
-  const handleModal = useContext(ModalContext);
-  const dispatch = useAuthDispatch()
 
   const handleLogout = () => {
     logout(dispatch)
     navigate("/")
     setLogin()
-  }
+  };
 
   return (
   <AppBar position='static' elevation={0} sx={{display: 'flex', alignItems: 'center', backgroundColor: 'common.white', borderBottom: "1px solid rgb(218, 218, 218)" }}>
         {/* <Container maxWidth="xl"> */}
         <StyledToolbar>
-          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <Box sx={{ display: 'flex', alignItems: 'center0', cursor: 'pointer' }} onClick={() => {navigate('/')}}>
             <LogoBox sx={{ pr: ".5rem" }}>
               <img src={images.logo} alt="logo" style={{ height: "100%" }} />
             </LogoBox>

@@ -1,6 +1,6 @@
 import React from 'react'
 import './Profile.scss'
-import Feed from './Feed';
+import Feed from './components/Feed/Feed';
 import SideBar from './SideBar';
 import { Box } from '@mui/system';
 import { Stack } from '@mui/material';

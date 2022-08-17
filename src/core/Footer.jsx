@@ -1,7 +1,7 @@
 import { Box, styled, Typography } from '@mui/material'
 import React from 'react'
 import { BsGithub, BsLinkedin } from 'react-icons/bs';
-import images from '../../constants/images'
+import images from '../constants/images'
 import './Footer.scss'
 
 const StyledBox = styled(Box)(({ theme }) => ({

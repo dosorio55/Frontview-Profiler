@@ -1,6 +1,6 @@
 import { Box, Button, ImageList, ImageListItem, styled, Typography } from '@mui/material'
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const itemData = [
   {
@@ -53,6 +53,8 @@ const BoxButton = styled(Box)(({
 
 const Home = () => {
 
+  const navigate = useNavigate();
+
   return (
     <StyledBox>
       <Box flex={1} sx={{ display: 'flex', flexDirection: 'column' }}>
@@ -63,8 +65,8 @@ const Home = () => {
           </Typography>
         </Typography>
         <BoxButton>
-          <Button variant='contained' color='secondary'>get started</Button>
-          <Button variant='outlined' color='primary'>Browse Network</Button>
+          <Button variant='contained' color='secondary' onClick={() => { navigate('/') }}>get started</Button>
+          <Button variant='outlined' color='primary' onClick={() => { navigate('/network') }}>Browse Network</Button>
         </BoxButton>
       </Box>
       <Box>

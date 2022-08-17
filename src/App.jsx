@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import Header from './core/header/Header';
+import Header from './core/Header';
 import Profile from './pages/profile/Profile';
 import Form from './pages/form/Form';
 import Home from './pages/home/Home';
@@ -8,7 +8,7 @@ import React, { useState } from 'react';
 import Network from './pages/network/Network';
 import NetworkProfile from './pages/NetworkProfile/NetworkProfile';
 import { AuthProvider } from './context/auth';
-import Footer from './core/footer/Footer';
+import Footer from './core/Footer';
 
 export const ModalContext = React.createContext()
 

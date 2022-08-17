@@ -1,13 +1,13 @@
 import { Avatar, Box, CircularProgress, Divider, Grid, Pagination, Paper, Stack, styled, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react'
-import { BASE_URL } from '../../context/api/context';
-import AboutMe from './components/AboutMe/AboutMe';
-import Experience from './components/Experience/Experience';
-import Project from './components/Project/Project';
-import WorkTimeline from './components/WorkTimeline';
-import { StyledPaper } from './Styles/materialStyles';
-import images from '../../constants/images'
-import ProfileSocials from './components/ProfileSocials/ProfileSocials';
+import { BASE_URL } from '../../../../context/api/context';
+import AboutMe from '../AboutMe/AboutMe';
+import Experience from '../Experience/Experience';
+import Project from '../Project/Project';
+import WorkTimeline from '../WorkTimeline';
+import { StyledPaper } from '../../Styles/materialStyles';
+import images from '../../../../constants/images'
+import ProfileSocials from '../ProfileSocials/ProfileSocials';
 
 const StyledBox = styled(Box)(({
     display: "flex",
@@ -98,9 +98,9 @@ const Feed = () => {
 
     return (
         <StyledBox flex={10} style={{ margin: "1rem" }} borderRadius>
-            {loading ?
+            {/* {loading ?
                 <CircularProgress />
-                :
+                : */}
                 <GridContainer>
                     <StyledPaper flex={8} elevation={3}>
                         <Typography variant="subtitle2" component="p" color="initial" sx={{ display: "block" }}>
@@ -113,7 +113,7 @@ const Feed = () => {
                                 src={image}
                                 sx={{ width: 100, height: 100 }}
                             />
-                            <div>
+                            <Box>
                                 <Typography variant="h6" component="p" color="initial">
                                     {name}
                                 </Typography>
@@ -121,7 +121,7 @@ const Feed = () => {
                                 <Typography component={'span'} variant={'body2'} color="initial">
                                     <AboutMe description={description} />
                                 </Typography>
-                            </div>
+                            </Box>
                         </ProfileBox>
                     </StyledPaper>
 
@@ -173,7 +173,7 @@ const Feed = () => {
 
 
                 </GridContainer>
-            }
+            {/* } */}
 
         </StyledBox>
     )
