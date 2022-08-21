@@ -1,5 +1,5 @@
 import { Box, Divider, List, ListItem, ListItemButton, ListItemIcon, ListItemText, styled, Typography } from '@mui/material'
-import React from 'react'
+import React, { useState } from 'react'
 import DraftsIcon from '@mui/icons-material/Drafts';
 import { ImHome3 } from 'react-icons/im'
 import { CgProfile } from 'react-icons/cg'
@@ -18,6 +18,9 @@ const StyledListIcon = styled(ListItemIcon)(({
 }));
 
 const SideBar = () => {
+
+  const [editMode, setEditMode] = useState(false);
+
   return (
     <Box flex={1.5} sx={{ paddingLeft: "1rem" }} pt="1rem">
       <List>
