@@ -2,7 +2,7 @@ import { Avatar, Box, Divider, Pagination, Paper, styled, Typography } from '@mu
 import React from 'react'
 import { BASE_URL } from '../../../../../context/api/context';
 import { StyledPaper } from '../../../Styles/materialStyles';
-import AboutMe from '../../AboutMe';
+import AboutMe from './AboutMe';
 import Experience from '../../Experience';
 import ProfileSocials from '../../ProfileSocials';
 import WorkTimeline from '../../WorkTimeline';

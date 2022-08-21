@@ -10,6 +10,8 @@ import images from '../../../../constants/images'
 import ProfileSocials from '../ProfileSocials'; */
 import PersonalInfo from './components/PersonalInfo';
 import EditProfile from './components/EditProfile';
+import { useContext } from 'react';
+import { EditModeContext } from '../../Profile';
 
 const StyledBox = styled(Box)(({
     display: "flex",
@@ -19,8 +21,9 @@ const StyledBox = styled(Box)(({
     gap: 15,
 }));
 
-const Feed = ({editMode}) => {
+const Feed = () => {
 
+    const editMode = useContext(EditModeContext);
     //ojo esto no funciona muy bien, lo del token
     const jwtToken = JSON.parse(localStorage.getItem("currentUser")).token;
 
@@ -64,11 +67,10 @@ const Feed = ({editMode}) => {
     return (
         <StyledBox flex={10} style={{ margin: "1rem" }} borderRadius>
             {/* <CircularProgress /> */}
-            {editMode ?
+            {editMode.editState ?
                 <EditProfile />
                 : <PersonalInfo profile={profile} projects={projects}
                     setProjects={setProjects} editMode={editMode} />}
-
         </StyledBox>
     )
 }
