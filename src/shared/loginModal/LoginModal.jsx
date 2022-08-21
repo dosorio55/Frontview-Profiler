@@ -63,7 +63,7 @@ const LoginModal = ({ modalValue, setLogin }) => {
 
 
   return (
-    <div className='container'>
+    <div>
       <div className={modalValue ? 'modalContainer modalContainer--active' : 'modalContainer'}>
         <AiFillCloseCircle className='modalContainer__close' onClick={handleModal} />
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', py: '2rem' }}>

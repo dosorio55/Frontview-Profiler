@@ -1,7 +1,6 @@
 import React from 'react'
-import './Experience.scss'
 import { Box, styled, Typography } from '@mui/material'
-import images from '../../../../constants/images'
+import images from '../../../constants/images'
 
 const capitalize = string => string[0].toUpperCase() + string.slice(1);
 

@@ -4,6 +4,9 @@ import DraftsIcon from '@mui/icons-material/Drafts';
 import { ImHome3 } from 'react-icons/im'
 import { CgProfile } from 'react-icons/cg'
 import { BiLogOut } from 'react-icons/bi';
+import { BsStopCircle } from 'react-icons/bs';
+import { useContext } from 'react';
+import { EditModeContext } from './Profile';
 
 const StyledDiv = styled(Box)(({ theme }) => ({
   padding: theme.spacing(.8, 1)
@@ -18,6 +21,11 @@ const StyledListIcon = styled(ListItemIcon)(({
 }));
 
 const SideBar = () => {
+
+  const editMode = useContext(EditModeContext);
+
+  const { editState, handleEditMode } = editMode;
+
   return (
     <Box flex={1.5} sx={{ paddingLeft: "1rem" }} pt="1rem">
       <List>
@@ -44,12 +52,13 @@ const SideBar = () => {
         <StyledDiv >
           <Typography variant="h6" component="p">Profile</Typography>
         </StyledDiv>
-        <ListItem disablePadding>
+        <ListItem disablePadding onClick={handleEditMode}>
           <StyledListItemButton>
             <StyledListIcon>
-              <CgProfile style={{ width: "18px", height: "18px" }} />
+              {editState ? <BsStopCircle style={{ width: "18px", height: "18px", color: "red" }} />
+                : <CgProfile style={{ width: "18px", height: "18px" }} />}
             </StyledListIcon>
-            <ListItemText primary="Edit" />
+            <ListItemText primary={editState ? 'Stop Editing' : 'Edit'} />
           </StyledListItemButton>
         </ListItem>
         <Divider />
