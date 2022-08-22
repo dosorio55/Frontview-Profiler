@@ -1,12 +1,12 @@
 import { Avatar, Box, Divider, Pagination, Paper, styled, Typography } from '@mui/material'
 import React from 'react'
-import { BASE_URL } from '../../../../../context/api/context';
-import { StyledPaper } from '../../../Styles/materialStyles';
+import { BASE_URL } from '../../../../context/api/context';
+import { StyledPaper } from '../../Styles/materialStyles';
 import AboutMe from './AboutMe';
-import Experience from '../../Experience';
-import ProfileSocials from '../../ProfileSocials';
-import WorkTimeline from '../../WorkTimeline';
-import Project from '../components/Project/Project';
+import Experience from './Experience';
+import ProfileSocials from './ProfileSocials';
+import WorkTimeline from './WorkTimeline';
+import Project from './Project/Project';
 
 
 const ProfileBox = styled(Box)(({

@@ -1,6 +1,6 @@
 import { Card, CardMedia, Typography, CardContent, Button, Box, Grid, styled } from '@mui/material'
 import React from 'react'
-import { BASE_URL } from '../../../../../../context/api/context'
+import { BASE_URL } from '../../../../../context/api/context';
 
 const StyledBox = styled(Box)(({
     display: "flex",

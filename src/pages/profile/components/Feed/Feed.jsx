@@ -1,15 +1,8 @@
 import { Avatar, Box, CircularProgress, Divider, Grid, Pagination, Paper, Stack, styled, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import { BASE_URL } from '../../../../context/api/context';
-/* import AboutMe from '../AboutMe';
-import Experience from '../Experience';
-import Project from './components/Project/Project';
-import WorkTimeline from '../WorkTimeline';
-import { StyledPaper } from '../../Styles/materialStyles';
-import images from '../../../../constants/images'
-import ProfileSocials from '../ProfileSocials'; */
-import PersonalInfo from './components/PersonalInfo';
-import EditProfile from './components/EditProfile';
+import PersonalInfo from './PersonalInfo';
+import EditProfile from './EditProfile';
 import { useContext } from 'react';
 import { EditModeContext } from '../../Profile';
 
