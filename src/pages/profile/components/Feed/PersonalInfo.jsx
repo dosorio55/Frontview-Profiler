@@ -8,8 +8,8 @@ import ProfileSocials from './ProfileSocials';
 import WorkTimeline from './WorkTimeline';
 import Project from './Project/Project';
 import { useContext } from 'react';
-import { UserProfileContext } from '../../Profile';
-
+import { UserProfileContext } from '../../../../App';
+import { useGetState } from '../../../../context/auth';
 
 const ProfileBox = styled(Box)(({
   display: "flex",
@@ -37,24 +37,22 @@ const ProjectsGrid = styled(Box)(({
 }));
 
 //ojo esto no funciona muy bien, lo del token
-const jwtToken = JSON.parse(localStorage.getItem("currentUser")).token;
 
 const PersonalInfo = ({ profile, projects, setProjects, editMode }) => {
 
-  const userContext = useContext(UserProfileContext);
+  const { name, image, description, habilities } = useContext(UserProfileContext).user;
 
-  const { image } = userContext.user;
+  const userLoggedState = useGetState();
 
   const getProjects = () => {
     fetch(`${BASE_URL}/project/personal`, {
       method: 'GET',
       headers: {
-        Authorization: `Bearer ${jwtToken}`
+        Authorization: `Bearer ${userLoggedState.token}`
       }
     }).then(res => res.json())
       .then(data => setProjects(data))
   };
-  const { name, headline, description, habilities } = profile;
 
   return (
     <GridContainer>
