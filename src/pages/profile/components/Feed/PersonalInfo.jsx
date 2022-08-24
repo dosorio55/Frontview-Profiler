@@ -1,6 +1,5 @@
 import { Avatar, Box, Divider, Pagination, Paper, styled, Typography } from '@mui/material'
 import React from 'react'
-import { BASE_URL } from '../../../../context/api/context';
 import { StyledPaper } from '../../Styles/materialStyles';
 import AboutMe from './AboutMe';
 import Experience from './Experience';
@@ -26,7 +25,6 @@ const GridContainer = styled(Box)(({
   gap: 15
 }));
 
-
 const ProjectsGrid = styled(Box)(({
   display: "grid",
   gridTemplateColumns: '1fr 1fr 1fr',
@@ -38,13 +36,15 @@ const ProjectsGrid = styled(Box)(({
 
 //ojo esto no funciona muy bien, lo del token
 
-const PersonalInfo = ({ profile, projects, setProjects, editMode }) => {
+const PersonalInfo = ({ editMode }) => {
 
+  //CONTEXT user and proyects
   const { name, image, description, habilities } = useContext(UserProfileContext).user;
+  const projects = useContext(UserProfileContext).projects;
 
   const userLoggedState = useGetState();
 
-  const getProjects = () => {
+/*   const getProjects = () => {
     fetch(`${BASE_URL}/project/personal`, {
       method: 'GET',
       headers: {
@@ -52,7 +52,7 @@ const PersonalInfo = ({ profile, projects, setProjects, editMode }) => {
       }
     }).then(res => res.json())
       .then(data => setProjects(data))
-  };
+  }; */
 
   return (
     <GridContainer>
@@ -105,7 +105,7 @@ const PersonalInfo = ({ profile, projects, setProjects, editMode }) => {
             <Project
               key={project._id}
               project={project}
-              getProjects={getProjects}
+              // getProjects={getProjects}
               editMode={editMode}
             ></Project>
           )}
