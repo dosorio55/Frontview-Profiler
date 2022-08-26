@@ -1,10 +1,11 @@
 import React, { useContext, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { ModalContext, UserProfileContext } from '../App';
 import { logout, useAuthDispatch } from '../context/auth';
 import { BiLogOut, BiUser } from 'react-icons/bi'
 import images from '../constants/images'
-import { AppBar, Avatar, Badge, Box, Button, Divider, Menu, MenuItem, styled, Toolbar, Typography } from '@mui/material';
+import { AppBar, Avatar, Box, Button, Divider, Menu, MenuItem, styled, Toolbar, Typography } from '@mui/material';
+import './Header.scss'
 
 const StyledToolbar = styled(Toolbar)({
   display: "flex",
@@ -18,7 +19,7 @@ const StyledToolbar = styled(Toolbar)({
 
 const Icons = styled(Box)(({
   display: "flex",
-  gap: "20px",
+  gap: "1.5rem",
   alignItems: "center",
 }));
 
@@ -40,19 +41,19 @@ const Header = ({ loginValue, setLogin }) => {
 
   const handleClose = () => {
     setAnchorElm(null);
-    setOpen(false)
+    setOpen(false);
   };
 
   const handleClick = (e) => {
-    setAnchorElm(e.currentTarget)
-    setOpen(true)
+    setAnchorElm(e.currentTarget);
+    setOpen(true);
   };
 
 
   const handleLogout = () => {
-    logout(dispatch)
-    navigate("/")
-    setLogin()
+    logout(dispatch);
+    navigate("/");
+    setLogin();
   };
 
   return (
@@ -70,13 +71,13 @@ const Header = ({ loginValue, setLogin }) => {
 
         <Icons>
           {/* {loginValue && <Link to='/add-profile'>add profile</Link>} */}
-          <Link to='/'>
+          <NavLink className='homeLink' to='/'>
             Home
-          </Link>
-          <Link to='/'>
+          </NavLink>
+          <NavLink className='homeLink' to='/register'>
             Register
-          </Link>
-          {loginValue && <Link to='/network'>Network</Link>}
+          </NavLink>
+          {loginValue && <NavLink className='homeLink' to='/network'>Network</NavLink>}
           {/*             <Badge badgeContent={4} color="error">
               <BsMailbox style={{ width: "20px", height: "20px" }} color="action" />
             </Badge> */}
