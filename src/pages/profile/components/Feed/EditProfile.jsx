@@ -29,12 +29,19 @@ const StyledPaper = styled(Paper)(({
   border: "1px solid rgb(152, 209, 255)",
 }));
 
-const ProfileBox = styled(Box)(({
+const ContainerBox = styled(Box)(({ theme }) => ({
   display: "flex",
-  flexDirection: 'row',
+  // flexDirection: 'row',
   gap: 15,
-  alignItems: 'center',
+  // alignItems: 'center',
+  borderRadius: theme.shape.borderRadius,
+  transition: { duration: theme.transitions.duration.standard },
   justifyContent: "center",
+  border: '1px solid rgb(227, 242, 253)',
+  '&:hover': {
+    boxShadow: 'rgba(32, 40, 45, 0.08) 0px 2px 14px 0px'
+  }
+
 }));
 
 const EditProfile = () => {
@@ -48,6 +55,7 @@ const EditProfile = () => {
           Edit Profile
         </Typography>
       </StyledPaper>
+
       {/* ------------------ Tabs -------------------------*/}
       <StyledPaper sx={{ mt: '1.3rem' }}>
         <StyledUl>
@@ -72,8 +80,11 @@ const EditProfile = () => {
           </StyledLi>
         </StyledUl>
         <Divider />
-        <StyledBox>
-          <ProfileBox flex={4}>
+
+        {/* ------------------------AVATAR AND UPDATE PICTURE --------------- */}
+
+        <StyledBox sx={{ display: 'flex', gap: '1rem' }}>
+          <ContainerBox flex={4} sx={{ alignItems: 'center' }}>
             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
               <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '.5rem' }}>
                 <Avatar
@@ -88,25 +99,28 @@ const EditProfile = () => {
               <Button variant='contained' color='secondary'>Update Picture</Button>
 
             </Box>
-          </ProfileBox>
-          <Box flex={8}>
-            <Typography variant="h6" component="p" color="initial">
-              Description
-            </Typography>
+          </ContainerBox>
+
+
+          <ContainerBox flex={8} sx={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            <Box>
+              <Typography variant="subtitle2" component="p" color="initial">
+                About Me
+              </Typography>
+              <Divider />
+            </Box>
             <TextField
               id="outlined-multiline-flexible"
-              label="Multiline"
+              label="About Me"
               multiline
               fullWidth
               color="secondary"
               focused
-              // maxRows={4}
+              maxRows={4}
               value={description}
             // onChange={handleChange}
             />
-            <Typography variant="h6" component="p" color="initial">
-              Description
-            </Typography>
+
             <TextField
               id="outlined-multiline-flexible"
               label="Multiline"
@@ -119,8 +133,8 @@ const EditProfile = () => {
             // onChange={handleChange}
             />
 
-            <MultipleSelectChip/>
-          </Box>
+            <MultipleSelectChip />
+          </ContainerBox>
         </StyledBox>
       </StyledPaper>
     </Box>

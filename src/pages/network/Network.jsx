@@ -9,7 +9,6 @@ import './Network.scss'
 const StyledBox = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.primary.light,
   maxWidth: "1200px",
-  // width: "calc(100% - 70px)",
   margin: "1.125rem auto",
   padding: "1.5rem"
 }));
