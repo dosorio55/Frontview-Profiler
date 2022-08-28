@@ -13,12 +13,13 @@ const TabsEditProfile = ({editTabs, setEditTabs}) => {
       <Tabs
         value={editTabs}
         onChange={handleChange}
-        aria-label="wrapped label tabs example"
+        indicatorColor="secondary"
+        textColor="secondary"
       >
 
-        <Tab value="profile" label="profile"
+        <Tab value="profile" label="profile" 
           iconPosition='start' icon={<BsFillFileEarmarkPersonFill style={{ width: "18px", height: "18px" }} />} />
-        <Tab value="skils" label="skils"
+        <Tab value="skills" label="skills"
           iconPosition='start' icon={<GiBrain style={{ width: "18px", height: "18px" }} />} />
 
         <Tab value="timeline" label="timeline"
