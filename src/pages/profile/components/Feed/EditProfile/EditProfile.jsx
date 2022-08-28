@@ -53,8 +53,6 @@ const ElementsContainer = styled(Box)(({ theme }) => ({
   padding: '.7rem 1rem',
   borderTopLeftRadius: theme.shape.borderRadius,
   borderTopRightRadius: theme.shape.borderRadius,
-  borderBottom: '1px solid rgb(227, 242, 253)'
-
 }));
 
 const TextInputStyled = styled(TextField)(({ theme }) => ({
@@ -84,7 +82,7 @@ const EditProfile = () => {
 
       {/* ------------------ Tabs -------------------------*/}
       <StyledPaper sx={{ mt: '1.3rem' }}>
-        <TabsEditProfile editTabs={editTabs} setEditTabs={setEditTabs}/>
+        <TabsEditProfile editTabs={editTabs} setEditTabs={setEditTabs} />
 
         <Divider />
 
@@ -93,7 +91,8 @@ const EditProfile = () => {
         <StyledGrid >
 
           <ContainerBox >
-            <ElementsContainer>
+
+            <ElementsContainer sx={{ borderBottom: '1px solid rgb(227, 242, 253)' }}>
               <Typography variant="subtitle2" component="p" color="initial">
                 Personal Information
               </Typography>
@@ -145,7 +144,7 @@ const EditProfile = () => {
           {/* ---------------------- ABOUT ME EDIT ----------------------- */}
 
           <ContainerBox>
-            <ElementsContainer>
+            <ElementsContainer sx={{ borderBottom: '1px solid rgb(227, 242, 253)' }}>
               <Typography variant="subtitle2" component="p" color="initial">
                 About Me
               </Typography>
@@ -175,7 +174,7 @@ const EditProfile = () => {
           </ContainerBox>
           {/* ----------------------------------SOCIAL MEDIA--------------------- */}
           <ContainerBox>
-            <ElementsContainer>
+            <ElementsContainer sx={{ borderBottom: '1px solid rgb(227, 242, 253)' }}>
               <Typography variant="subtitle2" component="p" color="initial">
                 Social Media
               </Typography>
