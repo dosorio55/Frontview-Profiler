@@ -1,11 +1,12 @@
 import { Avatar, Box, Button, Divider, Paper, styled, TextField, Typography } from '@mui/material';
-import React, { useContext } from 'react';
-import { UserProfileContext } from '../../../../App';
+import React, { useContext, useState } from 'react';
+import { UserProfileContext } from '../../../../../App';
 import { BsFacebook, BsFillFileEarmarkPersonFill, BsGithub } from 'react-icons/bs';
 import { GiBrain, GiSpellBook } from 'react-icons/gi';
 import { FiPenTool } from 'react-icons/fi';
-import MultipleSelectChip from './test';
+import MultipleSelectChip from '../test';
 import { AiFillLinkedin } from 'react-icons/ai';
+import TabsEditProfile from './TabsEditProfile';
 
 const StyledGrid = styled(Box)(({
   display: "grid",
@@ -39,8 +40,8 @@ const ContainerBox = styled(Box)(({ theme }) => ({
   gap: 15,
   borderRadius: theme.shape.borderRadius,
   transition: { duration: theme.transitions.duration.standard },
-  // justifyContent: "center",
   border: '1px solid rgb(227, 242, 253)',
+
   '&:hover': {
     boxShadow: 'rgba(32, 40, 45, 0.08) 0px 2px 14px 0px'
   }
@@ -69,6 +70,8 @@ const SocialsContainer = styled(Box)(({
 
 const EditProfile = () => {
 
+  const [editTabs, setEditTabs] = useState('profile');
+
   const { name, image, description, habilities, headline } = useContext(UserProfileContext).user;
 
   return (
@@ -81,25 +84,8 @@ const EditProfile = () => {
 
       {/* ------------------ Tabs -------------------------*/}
       <StyledPaper sx={{ mt: '1.3rem' }}>
-       {/* <StyledUl>
-          <StyledLi>
-            <BsFillFileEarmarkPersonFill style={{ width: "18px", height: "18px" }} />
-            About Me
-          </StyledLi>
-          <StyledLi>
-            <GiBrain style={{ width: "18px", height: "18px" }} />
-            Skills
-          </StyledLi>
-          <StyledLi>
-            <BsFillFileEarmarkPersonFill style={{ width: "18px", height: "18px" }} />
-            Timeline
-          </StyledLi>
-          <StyledLi>
-            <FiPenTool style={{ width: "18px", height: "18px" }} />
-            Projects
-          </StyledLi>
-        </StyledUl> */}
-        
+        <TabsEditProfile editTabs={editTabs} setEditTabs={setEditTabs}/>
+
         <Divider />
 
         {/* ------------------------AVATAR AND UPDATE PICTURE --------------- */}
