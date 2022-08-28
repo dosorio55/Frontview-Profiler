@@ -31,9 +31,7 @@ function App() {
 
 
   useEffect(() => {
-    console.log('app rendered');
     if (token) {
-      console.log('pide datos');
       fetch(`${BASE_URL}/profiles/personal`, {
         method: 'GET',
         headers: {

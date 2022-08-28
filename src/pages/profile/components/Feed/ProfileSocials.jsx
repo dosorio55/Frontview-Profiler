@@ -15,7 +15,6 @@ const BoxContainer = styled(Box)(({
 
 const ProfileSocials = () => {
   return (
-
     <Box
       sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 1, py: 2, minHeight: "80%", margin: "auto" }}>
       <BoxContainer>
