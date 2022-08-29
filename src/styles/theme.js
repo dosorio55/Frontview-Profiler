@@ -7,7 +7,8 @@ export const theme = createTheme({
             light: "#e3f2fd"
         },
         secondary: {
-            main: "#5e35b1"
+            main: "#5e35b1",
+            lighter: '#ede7f6'
         },
         action: {
             selected: "#5e35b1",

@@ -3,10 +3,18 @@ import React, { useState } from 'react'
 import { BsFillFileEarmarkPersonFill } from 'react-icons/bs';
 import { FiPenTool } from 'react-icons/fi';
 import { GiBrain, GiSandsOfTime } from 'react-icons/gi';
+import { Link, useNavigate } from 'react-router-dom';
 
-const TabsEditProfile = ({editTabs, setEditTabs}) => {
+const TabsEditProfile = ({ editTabs, setEditTabs }) => {
+
+  const navigate = useNavigate();
 
   const handleChange = (event, newValue) => setEditTabs(newValue);
+
+  const handleNavigate = () => {
+    console.log('navegando');
+    navigate('/profile')
+  }
 
   return (
     <Box sx={{ width: '100%' }}>
@@ -17,9 +25,10 @@ const TabsEditProfile = ({editTabs, setEditTabs}) => {
         textColor="secondary"
       >
 
-        <Tab value="profile" label="profile" 
+        <Tab value="profile" label="profile"
           iconPosition='start' icon={<BsFillFileEarmarkPersonFill style={{ width: "18px", height: "18px" }} />} />
-        <Tab value="skills" label="skills"
+
+        <Tab value="skills" label="skills" onClick={handleNavigate}
           iconPosition='start' icon={<GiBrain style={{ width: "18px", height: "18px" }} />} />
 
         <Tab value="timeline" label="timeline"
