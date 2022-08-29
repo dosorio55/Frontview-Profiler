@@ -9,6 +9,7 @@ import { useContext } from 'react';
 import { EditModeContext } from './Profile';
 import { GiBrain, GiSandsOfTime } from 'react-icons/gi';
 import { FiPenTool } from 'react-icons/fi';
+import { useNavigate } from 'react-router-dom';
 
 const StyledDiv = styled(Box)(({ theme }) => ({
   padding: theme.spacing(.8, 1)
@@ -30,9 +31,15 @@ const SideBar = () => {
 
   const [profileTabs, setProfileTabs] = useState('profile')
 
+  const navigate = useNavigate();
   const editMode = useContext(EditModeContext);
 
   const { editState, handleEditMode } = editMode;
+
+  const handleEditButton = () => {
+    navigate(!editState ? 'edit-info' : 'personal-info')
+    handleEditMode()
+  }
 
   const handleChange = (event, newValue) => setProfileTabs(newValue);
 
@@ -47,6 +54,7 @@ const SideBar = () => {
         orientation='vertical'
 
         sx={{
+          display: 'flex', justifyContent: 'flex-start',
           '& button': { transition: 'all 0.4s', borderTopLeftRadius: 15, borderBottomLeftRadius: 15 },
           '& button:hover': { backgroundColor: 'secondary.lighter', color: 'secondary.main' },
           '& button:focus': { backgroundColor: 'secondary.lighter', color: 'secondary.main' }
@@ -56,18 +64,15 @@ const SideBar = () => {
         <StyledDiv >
           <Typography variant="h6" component="p">Profile</Typography>
         </StyledDiv>
-        <Tab value="edit" label={!editState ? 'edit profile' : 'stop editing'} onClick={handleEditMode}
+        <Tab value="edit" label={!editState ? 'edit profile' : 'stop editing'} onClick={handleEditButton}
           iconPosition='start'
           icon={!editState ? <BiEdit style={{ width: "25px", height: "25px" }} />
             : <BsStopCircle style={{ width: "30px", height: "30px", color: "red" }} />} />
 
-
-
-
         <StyledDiv >
           <Typography variant="h6" component="p">Dashboard</Typography>
         </StyledDiv>
-        <Tab value="profile" label="profile"
+        <Tab value="profile" label="profile" onClick={() => navigate('personal-info')}
           iconPosition='start' icon={<GiSandsOfTime style={{ width: "25px", height: "25px" }} />} />
 
       </Tabs>
