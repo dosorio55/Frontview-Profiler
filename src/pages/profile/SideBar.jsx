@@ -1,14 +1,10 @@
 import { Box, Divider, List, ListItem, ListItemButton, ListItemIcon, ListItemText, styled, Tab, Tabs, Typography } from '@mui/material'
 import React, { useState } from 'react'
-import DraftsIcon from '@mui/icons-material/Drafts';
-import { ImHome3 } from 'react-icons/im'
-import { CgProfile } from 'react-icons/cg'
-import { BiEdit, BiLogOut } from 'react-icons/bi';
+import { BiEdit } from 'react-icons/bi';
+import { IoMdGitNetwork } from 'react-icons/io';
 import { BsStopCircle } from 'react-icons/bs';
 import { useContext } from 'react';
 import { EditModeContext } from './Profile';
-import { GiBrain, GiSandsOfTime } from 'react-icons/gi';
-import { FiPenTool } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
 
 const StyledDiv = styled(Box)(({ theme }) => ({
@@ -19,17 +15,9 @@ const StyledTabs = styled(Tabs)(({ theme }) => ({
   padding: theme.spacing(.8, 1)
 }));
 
-/* const StyledListItemButton = styled(ListItemButton)(({ theme }) => ({
-  padding: theme.spacing(.8, 2)
-}));
-
-const StyledListIcon = styled(ListItemIcon)(({
-  minWidth: "36px"
-})); */
-
 const SideBar = () => {
 
-  const [profileTabs, setProfileTabs] = useState('profile')
+  const [profileTabs, setProfileTabs] = useState('edit profile')
 
   const navigate = useNavigate();
   const editMode = useContext(EditModeContext);
@@ -64,16 +52,18 @@ const SideBar = () => {
         <StyledDiv >
           <Typography variant="h6" component="p">Profile</Typography>
         </StyledDiv>
-        <Tab value="edit" label={!editState ? 'edit profile' : 'stop editing'} onClick={handleEditButton}
+        <Tab value="edit" label={!editState ? 'edit' : 'stop editing'} onClick={handleEditButton}
           iconPosition='start'
           icon={!editState ? <BiEdit style={{ width: "25px", height: "25px" }} />
-            : <BsStopCircle style={{ width: "30px", height: "30px", color: "red" }} />} />
+            : <BsStopCircle style={{ width: "25px", height: "25px", color: "red" }} />} />
+
 
         <StyledDiv >
           <Typography variant="h6" component="p">Dashboard</Typography>
         </StyledDiv>
-        <Tab value="profile" label="profile" onClick={() => navigate('personal-info')}
-          iconPosition='start' icon={<GiSandsOfTime style={{ width: "25px", height: "25px" }} />} />
+        <Tab value="network" label="network" onClick={() => navigate('network')}
+          iconPosition='start' icon={<IoMdGitNetwork style={{ width: "25px", height: "25px" }} />} />
+
 
       </Tabs>
 

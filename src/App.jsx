@@ -74,10 +74,10 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/add-profile' element={<Form />} />
             <Route path='/profile' element={<Profile />} >
-              <Route path='personal-info' element={<PersonalInfo />}/>
-              <Route path='edit-info' element={<EditProfile />}/>
+              <Route index path='personal-info' element={<PersonalInfo />} />
+              <Route path='edit-info' element={<EditProfile />} />
+              <Route path='network' element={<Network />} />
             </Route>
-            <Route path='/network' element={<Network />} />
             <Route path='/network/:_id' element={<NetworkProfile />} />
             <Route path='*' />
           </Routes>

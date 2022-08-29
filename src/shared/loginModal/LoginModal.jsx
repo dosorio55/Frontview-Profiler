@@ -55,7 +55,7 @@ const LoginModal = ({ modalValue, setLogin }) => {
         await loginUser(dispatch, loginForm)
       }
       setLogin()
-      navigate("/network")
+      navigate("/profile/personal-info")
     } catch (error) {
       console.log(error);
     }

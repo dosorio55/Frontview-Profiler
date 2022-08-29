@@ -77,7 +77,7 @@ const Header = ({ loginValue, setLogin }) => {
           <NavLink className='homeLink' to='/register'>
             Register
           </NavLink>
-          {loginValue && <NavLink className='homeLink' to='/network'>Network</NavLink>}
+
           {/*             <Badge badgeContent={4} color="error">
               <BsMailbox style={{ width: "20px", height: "20px" }} color="action" />
             </Badge> */}
@@ -88,7 +88,7 @@ const Header = ({ loginValue, setLogin }) => {
           <Menu anchorEl={anchorElm} open={open} onClose={handleClose}
             anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
             transformOrigin={{ vertical: 'top', horizontal: 'right' }} >
-            <Link to='/profile'>
+            <Link to='/profile/personal-info'>
               <MenuItem onClick={handleClose}>Profile</MenuItem>
             </Link>
             <MenuItem onClick={handleClose}>Balance</MenuItem>

@@ -11,11 +11,6 @@ const TabsEditProfile = ({ editTabs, setEditTabs }) => {
 
   const handleChange = (event, newValue) => setEditTabs(newValue);
 
-  const handleNavigate = () => {
-    console.log('navegando');
-    navigate('/profile')
-  }
-
   return (
     <Box sx={{ width: '100%' }}>
       <Tabs
@@ -28,7 +23,7 @@ const TabsEditProfile = ({ editTabs, setEditTabs }) => {
         <Tab value="profile" label="profile"
           iconPosition='start' icon={<BsFillFileEarmarkPersonFill style={{ width: "18px", height: "18px" }} />} />
 
-        <Tab value="skills" label="skills" onClick={handleNavigate}
+        <Tab value="skills" label="skills"
           iconPosition='start' icon={<GiBrain style={{ width: "18px", height: "18px" }} />} />
 
         <Tab value="timeline" label="timeline"

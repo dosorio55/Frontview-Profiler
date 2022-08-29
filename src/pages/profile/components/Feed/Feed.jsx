@@ -60,14 +60,8 @@ const Feed = () => {
 
     return (
         <StyledBox flex={10} style={{ margin: "1rem" }} borderRadius>
-            {/* <CircularProgress /> */}
-
             <Outlet profile={profile} projects={projects}
                 setProjects={setProjects} editMode={editMode} />
-{/*             {editMode.editState ?
-                <EditProfile />
-                : <PersonalInfo profile={profile} projects={projects}
-                    setProjects={setProjects} editMode={editMode} />} */}
         </StyledBox>
     )
 }
