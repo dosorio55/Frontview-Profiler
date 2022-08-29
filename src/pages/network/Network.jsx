@@ -52,7 +52,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: 'inherit',
   '& .MuiInputBase-input': {
     padding: theme.spacing(1, 1, 1, 0),
-    
+
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create('width'),
     width: '100%',
@@ -67,7 +67,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const Network = () => {
 
-  const params =  useParams()
+  const params = useParams()
   console.log(params);
 
 
@@ -122,7 +122,7 @@ const Network = () => {
 
         <UsersBox>
           {filteredNetworks.map((network) =>
-            <NetworkItem key={network._id} networkItem={network}></NetworkItem>)}
+            <NetworkItem key={network._id} networkItem={network} />)}
         </UsersBox>
         <Pagination count={3} variant="outlined" color="secondary" size='medium'
           sx={{ display: "flex", justifyContent: "flex-end", p: "0.4rem" }} />

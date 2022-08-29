@@ -2,7 +2,7 @@ import { Avatar, Box, CircularProgress, Divider, Grid, Pagination, Paper, Stack,
 import React, { useEffect, useState } from 'react'
 import { BASE_URL } from '../../../../context/api/context';
 import PersonalInfo from './PersonalInfo';
-import EditProfile from './EditProfile';
+import EditProfile from './EditProfile/EditProfile';
 import { useContext } from 'react';
 import { EditModeContext } from '../../Profile';
 
