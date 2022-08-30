@@ -4,6 +4,7 @@ import { useContext } from 'react';
 import { UserProfileContext } from '../../../../../App';
 import images from '../../../../../constants/images'
 import { ContainerBox, ElementsContainer, SocialsContainer, StyledGrid, TextInputStyled } from './editProfileStyles';
+import SkillInput from './UI/SkillInput';
 
 const capitalize = string => string[0].toUpperCase() + string.slice(1);
 
@@ -46,26 +47,20 @@ const SkillsEdit = () => {
           </Typography>
         </ElementsContainer>
         <ElementsContainer sx={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: '.7rem' }}>
-          <TextInputStyled
-            id="outlined-multiline-flexible"
-            label="Add New Skill"
-            multiline
-            fullWidth
-            color="secondary"
-            maxRows={4}
-          // value=''
-          // onChange={handleChange}
-          />
-          {habilities.map(skill =>
-            <div key={skill}>
-              <Box sx={{ height: 40 }}>
-                <img src={images[skill]} alt={skill} style={{ height: "100%" }} />
+          <SkillInput habilities={habilities}/>
+
+          <Box sx={{ display: 'flex', gap: 2, mt: '.5rem' }}>
+            {habilities.map(skill =>
+              <Box key={skill} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: .5 }}>
+                <Box sx={{ display: 'flex', height: 90, width: 90, backgroundColor: 'grey.100', borderRadius: '50%' }}>
+                  <img src={images[skill]} alt={skill} style={{ height: "50%", margin: 'auto' }} />
+                </Box>
+                <Typography variant="span" color="body2">
+                  {capitalize(skill)}
+                </Typography>
               </Box>
-              <Typography variant="span" color="body2">
-                {capitalize(skill)}
-              </Typography>
-            </div>
-          )}
+            )}
+          </Box>
         </ElementsContainer>
       </ContainerBox>
 
@@ -101,62 +96,19 @@ const SkillsEdit = () => {
             // onChange={handleChange}
             />
           </Box>
-            <TextInputStyled
-              id="outlined-multiline-flexible"
-              label="Company"
-              color='secondary'
-              multiline
-              fullWidth
-              maxRows={4}
-            // value=''
-            // onChange={handleChange}
-            />
+          <TextInputStyled
+            id="outlined-multiline-flexible"
+            label="Company"
+            color='secondary'
+            multiline
+            fullWidth
+            maxRows={4}
+          // value=''
+          // onChange={handleChange}
+          />
         </ElementsContainer>
       </ContainerBox>
-      {/* ----------------------------------SOCIAL MEDIA--------------------- */}
-      {/*   <ContainerBox>
-        <ElementsContainer sx={{ borderBottom: '1px solid rgb(227, 242, 253)' }}>
-          <Typography variant="subtitle2" component="p" color="initial">
-            Social Media
-          </Typography>
-        </ElementsContainer>
-        <ElementsContainer sx={{ gap: '1rem' }}>
-          <SocialsContainer>
-            <TextInputStyled
-              id="outlined-multiline-flexible"
-              label="Facebook Profile Url"
-              fullWidth
-              color="secondary"
-              maxRows={4}
-              value=''
-              sx={{ backgroundColor: 'palette.grey[50]', borderRadius: '5px' }}
-            />
-          </SocialsContainer>
-          <SocialsContainer>
 
-            <TextInputStyled
-              id="outlined-multiline-flexible"
-              label="GitHub Profile Url"
-              color='secondary'
-              multiline
-              fullWidth
-              maxRows={4}
-            />
-          </SocialsContainer>
-          <SocialsContainer>
-
-            <TextInputStyled
-              id="outlined-multiline-flexible"
-              label="LinkedIn Profile Url"
-              color='secondary'
-              multiline
-              fullWidth
-              maxRows={4}
-            />
-          </SocialsContainer>
-
-        </ElementsContainer>
-      </ContainerBox> */}
     </Box>
   )
 }
