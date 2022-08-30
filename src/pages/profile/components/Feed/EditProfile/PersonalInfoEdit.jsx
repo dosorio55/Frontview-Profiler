@@ -3,9 +3,6 @@ import { Box } from '@mui/system'
 import React, { useContext } from 'react'
 import { ContainerBox, ElementsContainer, SocialsContainer, StyledGrid, TextInputStyled } from './editProfileStyles'
 import { BsFacebook, BsFillFileEarmarkPersonFill, BsGithub } from 'react-icons/bs';
-import { GiBrain, GiSpellBook } from 'react-icons/gi';
-import { FiPenTool } from 'react-icons/fi';
-import MultipleSelectChip from '../test';
 import { AiFillLinkedin } from 'react-icons/ai';
 import { UserProfileContext } from '../../../../../App';
 

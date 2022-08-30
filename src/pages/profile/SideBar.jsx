@@ -17,7 +17,7 @@ const StyledTabs = styled(Tabs)(({ theme }) => ({
 
 const SideBar = () => {
 
-  const [profileTabs, setProfileTabs] = useState('edit profile')
+  const [profileTabs, setProfileTabs] = useState('edit')
 
   const navigate = useNavigate();
   const editMode = useContext(EditModeContext);
