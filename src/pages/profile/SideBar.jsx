@@ -63,12 +63,7 @@ const SideBar = () => {
         </StyledDiv>
         <Tab value="network" label="network" onClick={() => navigate('network')}
           iconPosition='start' icon={<IoMdGitNetwork style={{ width: "25px", height: "25px" }} />} />
-
-
       </Tabs>
-
-
-
 
       {/* <ListItem disablePadding>
           <StyledListItemButton>

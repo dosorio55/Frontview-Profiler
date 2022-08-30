@@ -6,12 +6,12 @@ import { BASE_URL } from '../../context/api/context';
 import NetworkItem from './components/NetworkItem';
 import './Network.scss'
 
-const StyledBox = styled(Box)(({ theme }) => ({
+/* const StyledBox = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.primary.light,
   maxWidth: "1200px",
   margin: "1.125rem auto",
   padding: "1.5rem"
-}));
+})); */
 
 const UsersBox = styled(Box)(({
   display: "flex",
@@ -99,7 +99,7 @@ const Network = () => {
 
 
   return (
-    <StyledBox borderRadius>
+    <Box borderRadius>
       <Paper>
         <UsersBox sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <Typography variant="subtitle2" component="p" color="initial">
@@ -127,7 +127,7 @@ const Network = () => {
         <Pagination count={3} variant="outlined" color="secondary" size='medium'
           sx={{ display: "flex", justifyContent: "flex-end", p: "0.4rem" }} />
       </Paper>
-    </StyledBox>
+    </Box>
   )
 }
 
