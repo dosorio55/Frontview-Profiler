@@ -1,6 +1,6 @@
 import { Avatar, Box, Divider, Pagination, Paper, styled, Typography } from '@mui/material'
 import React from 'react'
-import { StyledPaper } from '../../Styles/materialStyles';
+import { ProjectsGrid, StyledPaper } from '../../Styles/materialStyles';
 import AboutMe from './AboutMe';
 import Experience from './Experience';
 import ProfileSocials from './ProfileSocials';
@@ -25,15 +25,6 @@ const GridContainer = styled(Box)(({
   gap: 15
 }));
 
-const ProjectsGrid = styled(Box)(({
-  display: "grid",
-  gridTemplateColumns: '1fr 1fr 1fr',
-  padding: "1.125rem",
-  paddingBottom: "0.8rem",
-  alignItems: "center",
-  gap: 15
-}));
-
 //ojo esto no funciona muy bien, lo del token
 
 const PersonalInfo = ({ editMode }) => {
@@ -44,15 +35,15 @@ const PersonalInfo = ({ editMode }) => {
 
   const userLoggedState = useGetState();
 
-/*   const getProjects = () => {
-    fetch(`${BASE_URL}/project/personal`, {
-      method: 'GET',
-      headers: {
-        Authorization: `Bearer ${userLoggedState.token}`
-      }
-    }).then(res => res.json())
-      .then(data => setProjects(data))
-  }; */
+  /*   const getProjects = () => {
+      fetch(`${BASE_URL}/project/personal`, {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${userLoggedState.token}`
+        }
+      }).then(res => res.json())
+        .then(data => setProjects(data))
+    }; */
 
   return (
     <GridContainer>
@@ -101,7 +92,7 @@ const PersonalInfo = ({ editMode }) => {
       <Paper sx={{ gridColumn: "span 2" }} elevation={3}>
 
         <ProjectsGrid container direction="row" spacing={2} sx={{ height: "87%" }}>
-          {projects && projects.map(project =>
+          {projects.map(project =>
             <Project
               key={project._id}
               project={project}
