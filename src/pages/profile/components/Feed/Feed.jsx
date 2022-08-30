@@ -5,6 +5,7 @@ import PersonalInfo from './PersonalInfo';
 import EditProfile from './EditProfile/EditProfile';
 import { useContext } from 'react';
 import { EditModeContext } from '../../Profile';
+import { Outlet } from 'react-router-dom';
 
 const StyledBox = styled(Box)(({
     display: "flex",
@@ -59,11 +60,8 @@ const Feed = () => {
 
     return (
         <StyledBox flex={10} style={{ margin: "1rem" }} borderRadius>
-            {/* <CircularProgress /> */}
-            {editMode.editState ?
-                <EditProfile />
-                : <PersonalInfo profile={profile} projects={projects}
-                    setProjects={setProjects} editMode={editMode} />}
+            <Outlet profile={profile} projects={projects}
+                setProjects={setProjects} editMode={editMode} />
         </StyledBox>
     )
 }

@@ -10,6 +10,8 @@ import NetworkProfile from './pages/NetworkProfile/NetworkProfile';
 import { AuthProvider, useGetState } from './context/auth';
 import Footer from './core/Footer';
 import { BASE_URL } from './context/api/context';
+import PersonalInfo from './pages/profile/components/Feed/PersonalInfo';
+import EditProfile from './pages/profile/components/Feed/EditProfile/EditProfile';
 
 export const ModalContext = React.createContext();
 export const UserProfileContext = React.createContext();
@@ -71,8 +73,11 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/add-profile' element={<Form />} />
-            <Route path='/profile' element={<Profile />} />
-            <Route path='/network' element={<Network />} />
+            <Route path='/profile' element={<Profile />} >
+              <Route index path='personal-info' element={<PersonalInfo />} />
+              <Route path='edit-info' element={<EditProfile />} />
+              <Route path='network' element={<Network />} />
+            </Route>
             <Route path='/network/:_id' element={<NetworkProfile />} />
             <Route path='*' />
           </Routes>
