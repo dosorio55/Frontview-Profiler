@@ -1,11 +1,13 @@
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
+import programingLang from '../../../../../../constants/programingLang';
 
+const capitalize = string => string[0].toUpperCase() + string.slice(1);
 
-const SkillInput = ({ habilities }) => {
+const SkillInput = ({  }) => {
 
-    console.log(habilities);
+    console.log();
 
     return (
         <Stack spacing={2} sx={{ width: '100%' }}>
@@ -13,7 +15,7 @@ const SkillInput = ({ habilities }) => {
                 freeSolo
                 id="skills-search-input"
                 disableClearable
-                options={habilities.map(skill => skill)}
+                options={programingLang.map(skill => capitalize(skill))}
                 renderInput={(params) => (
                     <TextField
                         {...params}

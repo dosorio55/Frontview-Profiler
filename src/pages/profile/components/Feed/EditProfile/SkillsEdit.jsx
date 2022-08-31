@@ -1,5 +1,5 @@
-import { Box, Button, styled, Typography } from '@mui/material'
-import React from 'react'
+import { Box, Button, FormLabel, styled, Typography } from '@mui/material'
+import React, { useEffect, useState } from 'react'
 import { useContext } from 'react';
 import { UserProfileContext } from '../../../../../App';
 import images from '../../../../../constants/images'
@@ -8,7 +8,7 @@ import SkillInput from './UI/SkillInput';
 
 const capitalize = string => string[0].toUpperCase() + string.slice(1);
 
-const IconBox = styled(Box)(({
+/* const IconBox = styled(Box)(({
   height: 40,
 }));
 
@@ -26,11 +26,23 @@ const BoxContainer = styled(Box)(({
   justifyContent: 'space-evenly',
   alignItems: "center",
   minHeight: "5rem"
-}));
+})); */
 
 const SkillsEdit = () => {
-
   const { habilities } = useContext(UserProfileContext).user;
+
+  const [skillsList, setSkillsList] = useState([])
+
+useEffect(() => {
+ setSkillsList(habilities)
+}, [])
+
+
+  const handleAddSkill = (event) => {
+    event.preventDefault()
+    console.log(event.target.value);
+    // setSkillsList(prevState => [...prevState, ])
+   }
 
   return (
     <Box sx={{
@@ -46,11 +58,15 @@ const SkillsEdit = () => {
             Skills
           </Typography>
         </ElementsContainer>
-        <ElementsContainer sx={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: '.7rem' }}>
-          <SkillInput habilities={habilities}/>
+        <ElementsContainer sx={{ display: 'flex', flexWrap: 'wrap', gap: '.7rem' }}>
+          <form onSubmit={handleAddSkill} sx={{ display: 'grid', gridTemplateColumns: '5fr 2fr', gap: '1rem' }}>
+            <SkillInput />
+            <Button variant='contained' color='secondary' size='small' type='submit' onClick={handleAddSkill}>Add Skill</Button>
+          </form>
+
 
           <Box sx={{ display: 'flex', gap: 2, mt: '.5rem' }}>
-            {habilities.map(skill =>
+            {skillsList.map(skill =>
               <Box key={skill} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: .5 }}>
                 <Box sx={{ display: 'flex', height: 90, width: 90, backgroundColor: 'grey.100', borderRadius: '50%' }}>
                   <img src={images[skill]} alt={skill} style={{ height: "50%", margin: 'auto' }} />
@@ -64,7 +80,7 @@ const SkillsEdit = () => {
         </ElementsContainer>
       </ContainerBox>
 
-      {/* ---------------------- ABOUT ME EDIT ----------------------- */}
+      {/* ---------------------- Experience ----------------------- */}
 
       <ContainerBox flex={1}>
         <ElementsContainer sx={{ borderBottom: '1px solid rgb(227, 242, 253)' }}>
