@@ -68,8 +68,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 const Network = () => {
 
   const params = useParams()
-  console.log(params);
-
 
   const [profiles, setProfiles] = useState([]);
   const [loading, setLoading] = useState(false);

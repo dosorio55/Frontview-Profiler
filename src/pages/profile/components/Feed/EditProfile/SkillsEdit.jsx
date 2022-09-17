@@ -59,10 +59,9 @@ useEffect(() => {
           </Typography>
         </ElementsContainer>
         <ElementsContainer sx={{ display: 'flex', flexWrap: 'wrap', gap: '.7rem' }}>
-          <form onSubmit={handleAddSkill} sx={{ display: 'grid', gridTemplateColumns: '5fr 2fr', gap: '1rem' }}>
-            <SkillInput />
-            <Button variant='contained' color='secondary' size='small' type='submit' onClick={handleAddSkill}>Add Skill</Button>
-          </form>
+          <Box onSubmit={handleAddSkill} sx={{ display: 'grid', gridTemplateColumns: '5fr 2fr', gap: '1rem' }}>
+            <SkillInput handleAddSkill={handleAddSkill}/>
+          </Box>
 
 
           <Box sx={{ display: 'flex', gap: 2, mt: '.5rem' }}>
