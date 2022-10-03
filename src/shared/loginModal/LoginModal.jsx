@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { Box, Button, Divider, styled, TextField, Typography } from '@mui/material';
 
-const StyledBox = styled(Box)(({
+const StyledBox = styled('form')(({
   display: "flex",
   flexDirection: "column",
   margin: "0 auto",
@@ -30,7 +30,6 @@ const LoginModal = ({ modalValue, setLogin }) => {
   };
 
   const dispatch = useAuthDispatch();
-  // const userState = useGetState();
   const [loginForm, setLoginForm] = useState(formInitialState);
 
   const [loginBtn, setLoginBtn] = useState(false);
@@ -46,19 +45,20 @@ const LoginModal = ({ modalValue, setLogin }) => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    handleModal()
+    console.log('hola soy un form')
+    // handleModal()
 
-    try {
-      if (loginBtn) {
-        await signIn(dispatch, loginForm)
-      } else {
-        await loginUser(dispatch, loginForm)
-      }
-      setLogin()
-      navigate("/profile/personal-info")
-    } catch (error) {
-      console.log(error);
-    }
+    // try {
+    //   if (loginBtn) {
+    //     await signIn(dispatch, loginForm)
+    //   } else {
+    //     await loginUser(dispatch, loginForm)
+    //   }
+    //   setLogin()
+    //   navigate("/profile/personal-info")
+    // } catch (error) {
+    //   console.log(error);
+    // }
   };
 
 
@@ -76,7 +76,8 @@ const LoginModal = ({ modalValue, setLogin }) => {
           </Typography>
         </Box>
 
-        <StyledBox >
+        <StyledBox onSubmit={handleLogin}>
+
           <StyledTextField
             id="outlined-required"
             name='email'
@@ -91,13 +92,22 @@ const LoginModal = ({ modalValue, setLogin }) => {
             type="password"
             autoComplete="current-password"
             onChange={handleLoginForm}
-          // value={loginForm.password}
+            value={loginForm.password}
           />
-          <Button size="large" variant="contained" onClick={handleLogin}>{loginBtn ? 'create account' : "login"}</Button>
+          <StyledTextField
+            id="outlined-password-input"
+            label="Password"
+            name='password'
+            type="password"
+            autoComplete="current-password"
+            onChange={handleLoginForm}
+            value={loginForm.password}
+          />
+          <Button size="large" variant="contained" type='submit'>{loginBtn ? 'create account' : "login"}</Button>
         </StyledBox>
         <Box sx={{ px: '2rem', textAlign: 'center' }}>
           <Divider />
-          <Typography variant="body1" component="p" color="initial" onClick={handleBtnLogin} sx={{p: "1rem", cursor: 'pointer'}}>
+          <Typography variant="body1" component="p" color="initial" onClick={handleBtnLogin} sx={{ p: "1rem", cursor: 'pointer' }}>
             {loginBtn ? 'i already have an account' : 'Create an account'}
           </Typography>
         </Box>

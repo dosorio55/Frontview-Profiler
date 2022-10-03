@@ -19,7 +19,7 @@ const StyledToolbar = styled(Toolbar)({
 
 const Icons = styled(Box)(({
   display: "flex",
-  gap: "1.5rem",
+  gap: "0rem",
   alignItems: "center",
 }));
 
@@ -64,14 +64,14 @@ const Header = ({ loginValue, setLogin }) => {
           <LogoBox sx={{ pr: ".5rem" }}>
             <img src={images.logo} alt="logo" style={{ height: "100%" }} />
           </LogoBox>
-          <Typography variant="h6" component="h1" color="initial" sx={{ fontWeight: 'bold', mt: "4px" }}>
+          <Typography variant="h6" component="h1" color="initial" sx={{ fontWeight: 'bold', mt: "4px", display: { xs: "none", sm: "block" } }}>
             WINDVIEW
           </Typography>
         </Box>
 
         <Icons>
           {/* {loginValue && <Link to='/add-profile'>add profile</Link>} */}
-          <NavLink className='homeLink' to='/'>
+          <NavLink className='homeLink' to='/' >
             Home
           </NavLink>
           <NavLink className='homeLink' to='/register'>

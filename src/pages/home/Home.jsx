@@ -38,6 +38,7 @@ const StyledBox = styled(Box)(({
   flexWrap: 'wrap',
   justifyContent: 'center',
   alignItems: 'center',
+  minHeight: '55vh',
   gap: 70,
   maxWidth: '1200px',
   width: 'calc(100% - 74px)',
@@ -47,7 +48,7 @@ const StyledBox = styled(Box)(({
 const BoxButton = styled(Box)(({
   display: 'flex',
   marginTop: '35px',
-  gap: 15
+  gap: 15,
 }));
 
 
@@ -64,7 +65,7 @@ const Home = () => {
             &nbsp;WINDVIEW
           </Typography>
         </Typography>
-        <BoxButton>
+        <BoxButton sx={{justifyContent: {xs: 'center', md: 'flex-start'}}}>
           <Button variant='contained' color='secondary' onClick={() => { navigate('/') }}>get started</Button>
           <Button variant='outlined' color='primary' onClick={() => { navigate('/network') }}>Browse Network</Button>
         </BoxButton>
