@@ -46,7 +46,6 @@ const MyWork = ({ project, getProjects, editMode }) => {
                 <Button size='small' variant="outlined">GitHub</Button>
                 <Button size='small' variant="contained">Live Demo</Button>
             </StyledBox>
-            {/* {editMode && <button onClick={handleDelete}>delete</button>} */}
         </Card>
     )
 }

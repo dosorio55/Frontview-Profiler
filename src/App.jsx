@@ -31,17 +31,19 @@ function App() {
   const [userProfile, setUserProfile] = useState([]);
   const [userProjects, setUserProjects] = useState([]);
 
-
+  const fetchProfile = () => {
+    fetch(`${BASE_URL}/profiles/personal`, {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+      .then(response => response.json())
+      .then(data => setUserProfile(data[0]));
+  }
   useEffect(() => {
     if (token) {
-      fetch(`${BASE_URL}/profiles/personal`, {
-        method: 'GET',
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      })
-        .then(response => response.json())
-        .then(data => setUserProfile(data[0]));
+      fetchProfile()
 
       fetch(`${BASE_URL}/project/personal`, {
         method: 'GET',
@@ -63,13 +65,11 @@ function App() {
   return (
     <AuthProvider>
       <Router>
-        <UserProfileContext.Provider value={{ user: userProfile, projects: userProjects }}>
+        <UserProfileContext.Provider value={{ user: userProfile, projects: userProjects, fetchProfile: fetchProfile }}>
           <ModalContext.Provider value={handleModal}>
             <Header loginValue={login} setLogin={handleLogin}></Header>
-
             <LoginModal modalValue={modal} setLogin={handleLogin}></LoginModal>
           </ModalContext.Provider>
-
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/add-profile' element={<Form />} />

@@ -6,6 +6,7 @@ import { BiLogOut, BiUser } from 'react-icons/bi'
 import images from '../constants/images'
 import { AppBar, Avatar, Box, Button, Divider, Menu, MenuItem, styled, Toolbar, Typography } from '@mui/material';
 import './Header.scss'
+import { GiHamburgerMenu } from 'react-icons/gi';
 
 const StyledToolbar = styled(Toolbar)({
   display: "flex",
@@ -58,7 +59,6 @@ const Header = ({ loginValue, setLogin }) => {
 
   return (
     <AppBar position='static' elevation={0} sx={{ display: 'flex', alignItems: 'center', backgroundColor: 'common.white', borderBottom: "1px solid rgb(218, 218, 218)" }}>
-      {/* <Container maxWidth="xl"> */}
       <StyledToolbar>
         <Box sx={{ display: 'flex', alignItems: 'center0', cursor: 'pointer' }} onClick={() => { navigate('/') }}>
           <LogoBox sx={{ pr: ".5rem" }}>
@@ -67,20 +67,19 @@ const Header = ({ loginValue, setLogin }) => {
           <Typography variant="h6" component="h1" color="initial" sx={{ fontWeight: 'bold', mt: "4px", display: { xs: "none", sm: "block" } }}>
             WINDVIEW
           </Typography>
+        
+          <Typography variant="h6" component="h1" color="initial" sx={{ fontWeight: 'bold', mt: "4px" }}>
+
+          </Typography>
         </Box>
 
         <Icons>
-          {/* {loginValue && <Link to='/add-profile'>add profile</Link>} */}
           <NavLink className='homeLink' to='/' >
             Home
           </NavLink>
-          <NavLink className='homeLink' to='/register'>
+          {/* <NavLink className='homeLink' to='/register'>
             Register
-          </NavLink>
-
-          {/*             <Badge badgeContent={4} color="error">
-              <BsMailbox style={{ width: "20px", height: "20px" }} color="action" />
-            </Badge> */}
+          </NavLink> */}
           {loginValue ?
             <Avatar onClick={handleClick} sx={{ width: 30, height: 30, cursor: 'pointer' }}
               src={image} alt="Remy Sharp" />

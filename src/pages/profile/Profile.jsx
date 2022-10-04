@@ -3,7 +3,6 @@ import Feed from './components/Feed/Feed';
 import SideBar from './SideBar';
 import { Box } from '@mui/system';
 import { Stack } from '@mui/material';
-import { BASE_URL } from '../../context/api/context';
 
 export const EditModeContext = React.createContext({ editState: false });
 
@@ -17,9 +16,9 @@ const Profile = () => {
 
     <Box>
       <Stack direction="row" spacing={2} justifyContent="space-between">
-        <EditModeContext.Provider value={{ editState: editMode, handleEditMode: handleEditMode }}>
+        <EditModeContext.Provider value={{ editState: editMode, handleEditMode: handleEditMode, setEditMode }}>
           <SideBar />
-            <Feed />
+          <Feed />
         </EditModeContext.Provider>
       </Stack>
     </Box>

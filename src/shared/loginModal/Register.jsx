@@ -6,13 +6,14 @@ const StyledTextField = styled(TextField)(({
     backgroundColor: '#fafafa'
 }));
 
-const Login = ({ handleLoginForm, loginForm, loading }) => {
+const Register = ({handleLoginForm, loginForm }) => {
     return (
         <>
             <StyledTextField
                 id="outlined-required"
                 name='email'
                 label="email"
+                multiline
                 onChange={handleLoginForm}
                 value={loginForm.email}
             />
@@ -24,9 +25,19 @@ const Login = ({ handleLoginForm, loginForm, loading }) => {
                 onChange={handleLoginForm}
                 value={loginForm.password}
             />
-            <Button size="large" variant="contained" type='submit' disabled={loading}>Login</Button>
+            <StyledTextField
+                id="confirm-password"
+                label="confirm-password"
+                name='confirm-password'
+                type="password"
+                onChange={handleLoginForm}
+                value={loginForm.confirmPassword}
+            />
+
+            <Button size="large" variant="contained" >Next</Button>
+            <Button size="large" variant="contained" type='submit'>Register</Button>
         </>
     )
 }
 
-export default Login
+export default Register

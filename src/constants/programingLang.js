@@ -8,14 +8,14 @@ const programingLang =
         'github',
         'graphql',
         'html',
-        'javascriptvascript',
+        'javascript',
         'mu5',
         'node',
         'python',
         'react',
         'redux',
         'sass',
-        'typescriptpescript',
+        'typescript',
         'vue']
 
 export default programingLang
