@@ -5,19 +5,16 @@ import './LoginModal.scss'
 import { useNavigate } from "react-router-dom";
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { Box, Button, Divider, styled, TextField, Typography } from '@mui/material';
+import Login from './Login';
+import Register from './Register';
 
-const StyledBox = styled(Box)(({
+const StyledBox = styled('form')(({
   display: "flex",
   flexDirection: "column",
   margin: "0 auto",
   minWidth: "90%",
   gap: 20,
 }));
-
-const StyledTextField = styled(TextField)(({
-  backgroundColor: '#fafafa'
-}));
-
 
 const LoginModal = ({ modalValue, setLogin }) => {
 
@@ -26,17 +23,17 @@ const LoginModal = ({ modalValue, setLogin }) => {
 
   const formInitialState = {
     email: "leanejoye@leane.com",
-    password: "12345"
+    password: "12345",
+    confirmPassword: ""
   };
 
   const dispatch = useAuthDispatch();
-  // const userState = useGetState();
   const [loginForm, setLoginForm] = useState(formInitialState);
-
-  const [loginBtn, setLoginBtn] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [loginState, setLoginState] = useState(false);
 
   const handleBtnLogin = () => {
-    setLoginBtn(!loginBtn)
+    setLoginState(!loginState)
   };
 
   const handleLoginForm = (event) => {
@@ -46,21 +43,21 @@ const LoginModal = ({ modalValue, setLogin }) => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    handleModal()
-
+    setLoading(true);
     try {
-      if (loginBtn) {
+      if (loginState) {
         await signIn(dispatch, loginForm)
       } else {
         await loginUser(dispatch, loginForm)
       }
+      setLoading(false)
       setLogin()
+      handleModal()
       navigate("/profile/personal-info")
     } catch (error) {
       console.log(error);
     }
   };
-
 
   return (
     <div>
@@ -68,37 +65,21 @@ const LoginModal = ({ modalValue, setLogin }) => {
         <AiFillCloseCircle className='modalContainer__close' onClick={handleModal} />
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', py: '2rem' }}>
           <Typography variant="h6" component="p" color="initial">
-
             HELLO! Welcome Back
           </Typography>
           <Typography variant="subtitle2" component="p" color="GrayText">
             Enter your credentials to continue
           </Typography>
         </Box>
-
-        <StyledBox >
-          <StyledTextField
-            id="outlined-required"
-            name='email'
-            label="email"
-            onChange={handleLoginForm}
-            value={loginForm.email}
-          />
-          <StyledTextField
-            id="outlined-password-input"
-            label="Password"
-            name='password'
-            type="password"
-            autoComplete="current-password"
-            onChange={handleLoginForm}
-          // value={loginForm.password}
-          />
-          <Button size="large" variant="contained" onClick={handleLogin}>{loginBtn ? 'create account' : "login"}</Button>
+        <StyledBox onSubmit={handleLogin}>
+          {loginState ?
+            <Register handleLoginForm={handleLoginForm} loginForm={loginForm} />
+            : <Login loading={loading} handleLoginForm={handleLoginForm} loginForm={loginForm} />}
         </StyledBox>
         <Box sx={{ px: '2rem', textAlign: 'center' }}>
           <Divider />
-          <Typography variant="body1" component="p" color="initial" onClick={handleBtnLogin} sx={{p: "1rem", cursor: 'pointer'}}>
-            {loginBtn ? 'i already have an account' : 'Create an account'}
+          <Typography variant="body1" component="p" color="initial" onClick={handleBtnLogin} sx={{ p: "1rem", cursor: 'pointer' }}>
+            {loginState ? 'i already have an account' : 'Create an account'}
           </Typography>
         </Box>
       </div>

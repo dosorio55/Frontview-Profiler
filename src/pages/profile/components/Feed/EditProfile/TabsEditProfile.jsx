@@ -23,11 +23,9 @@ const TabsEditProfile = ({ editTabs, setEditTabs }) => {
         <Tab value="profile" label="profile"
           iconPosition='start' icon={<BsFillFileEarmarkPersonFill style={{ width: "18px", height: "18px" }} />} />
 
-        <Tab value="skills" label="skills"
+        <Tab value="skills" label="Experience"
           iconPosition='start' icon={<GiBrain style={{ width: "18px", height: "18px" }} />} />
 
-        <Tab value="timeline" label="timeline"
-          iconPosition='start' icon={<GiSandsOfTime style={{ width: "18px", height: "18px" }} />} />
         <Tab value="projects" label="projects"
           iconPosition='start' icon={<FiPenTool style={{ width: "18px", height: "18px" }} />} />
 

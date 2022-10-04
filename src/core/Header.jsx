@@ -19,7 +19,7 @@ const StyledToolbar = styled(Toolbar)({
 
 const Icons = styled(Box)(({
   display: "flex",
-  gap: "1.5rem",
+  gap: "0rem",
   alignItems: "center",
 }));
 
@@ -58,29 +58,27 @@ const Header = ({ loginValue, setLogin }) => {
 
   return (
     <AppBar position='static' elevation={0} sx={{ display: 'flex', alignItems: 'center', backgroundColor: 'common.white', borderBottom: "1px solid rgb(218, 218, 218)" }}>
-      {/* <Container maxWidth="xl"> */}
       <StyledToolbar>
         <Box sx={{ display: 'flex', alignItems: 'center0', cursor: 'pointer' }} onClick={() => { navigate('/') }}>
           <LogoBox sx={{ pr: ".5rem" }}>
             <img src={images.logo} alt="logo" style={{ height: "100%" }} />
           </LogoBox>
-          <Typography variant="h6" component="h1" color="initial" sx={{ fontWeight: 'bold', mt: "4px" }}>
+          <Typography variant="h6" component="h1" color="initial" sx={{ fontWeight: 'bold', mt: "4px", display: { xs: "none", sm: "block" } }}>
             WINDVIEW
+          </Typography>
+
+          <Typography variant="h6" component="h1" color="initial" sx={{ fontWeight: 'bold', mt: "4px" }}>
+
           </Typography>
         </Box>
 
         <Icons>
-          {/* {loginValue && <Link to='/add-profile'>add profile</Link>} */}
-          <NavLink className='homeLink' to='/'>
+          <NavLink className='homeLink' to='/' >
             Home
           </NavLink>
-          <NavLink className='homeLink' to='/register'>
+          {/* <NavLink className='homeLink' to='/register'>
             Register
-          </NavLink>
-
-          {/*             <Badge badgeContent={4} color="error">
-              <BsMailbox style={{ width: "20px", height: "20px" }} color="action" />
-            </Badge> */}
+          </NavLink> */}
           {loginValue ?
             <Avatar onClick={handleClick} sx={{ width: 30, height: 30, cursor: 'pointer' }}
               src={image} alt="Remy Sharp" />
@@ -94,7 +92,11 @@ const Header = ({ loginValue, setLogin }) => {
             <MenuItem onClick={handleClose}>Balance</MenuItem>
             <Divider />
             <MenuItem onClick={handleClose}>
-              {loginValue ? <BiLogOut style={{ width: "20px", height: "20px" }} onClick={handleLogout} /> : <BiUser style={{ width: "20px", height: "20px" }} />}
+              <p onClick={handleLogout}>
+                {loginValue ? <BiLogOut style={{ width: "20px", height: "20px" }} /> : <BiUser style={{ width: "20px", height: "20px" }} />}
+                Logout
+              </p>
+
             </MenuItem>
           </Menu>
         </Icons>

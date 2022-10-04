@@ -4,10 +4,6 @@ import images from '../../../../constants/images'
 
 const capitalize = string => string[0].toUpperCase() + string.slice(1);
 
-const IconBox = styled(Box)(({
-    height: 40,
-}));
-
 const StyledBox = styled(Box)(({
     display: "flex",
     flexDirection: "column",
@@ -33,9 +29,9 @@ const Experience = ({ habilities }) => {
         <BoxContainer className="skills_cards" sx={{ gap: skillsGap, margin: "auto 0", p: 2}}>
             {habilities?.map(skill =>
                 <StyledBox key={skill} flex={1}>
-                    <IconBox>
+                    <Box sx={{height: 40}}>
                         <img src={images[skill]} alt={skill} style={{ height: "100%" }} />
-                    </IconBox>
+                    </Box>
                     <Typography variant="span" color="body2">
                         {capitalize(skill)}
                     </Typography>

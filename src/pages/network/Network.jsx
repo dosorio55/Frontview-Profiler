@@ -67,13 +67,15 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const Network = () => {
 
-  const params = useParams()
-  console.log(params);
-
+  const params = useParams();
 
   const [profiles, setProfiles] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [search, setSearch] = useState("")
+  const [search, setSearch] = useState("");
+  const [page, setPage] = useState(1)
+  const handleChange = (event, value) => {
+    setPage(value);
+  };
 
   useEffect(() => {
     setLoading(true)
@@ -88,16 +90,24 @@ const Network = () => {
 
   }, []);
 
-  const filteredNetworks = profiles.filter((filteredData) => {
+  const pageNumbers = Math.ceil(profiles.length / 9);
+
+  const pageLimit = 9;
+  const from = pageLimit * (page - 1);
+  const to = from + pageLimit
+
+  const filteredNetworks = profiles.slice(from, to).filter((filteredData) => {
     return filteredData.name.toLowerCase().includes(search)
-  })
+  });
+
+  console.log(page);
 
   const handleSearch = (e) => {
     e.preventDefault()
     setSearch(e.target.value.toLowerCase())
-  }
+  };
 
-
+  // console.log(Math.ceil(profiles.length / 9));
   return (
     <Box borderRadius>
       <Paper>
@@ -124,7 +134,7 @@ const Network = () => {
           {filteredNetworks.map((network) =>
             <NetworkItem key={network._id} networkItem={network} />)}
         </UsersBox>
-        <Pagination count={3} variant="outlined" color="secondary" size='medium'
+        <Pagination count={pageNumbers} onChange={handleChange} variant="outlined" color="secondary" size='medium'
           sx={{ display: "flex", justifyContent: "flex-end", p: "0.4rem" }} />
       </Paper>
     </Box>

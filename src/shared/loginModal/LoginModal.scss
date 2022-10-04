@@ -4,8 +4,9 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
-    height: 50%;
-    min-width: 430px;
+    min-height: 55%;
+    max-width: 400px;
+    width: calc(100vw - 5px);
     border-radius: 5px;
     border: 1px solid rgb(33, 150, 243);
 
