@@ -41,17 +41,21 @@ function App() {
       .then(response => response.json())
       .then(data => setUserProfile(data[0]));
   }
+
+  const fetchProjects = ()=> {
+    fetch(`${BASE_URL}/project/personal`, {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    }).then(res => res.json())
+      .then(data => setUserProjects(data))
+  }
+
   useEffect(() => {
     if (token) {
       fetchProfile()
-
-      fetch(`${BASE_URL}/project/personal`, {
-        method: 'GET',
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      }).then(res => res.json())
-        .then(data => setUserProjects(data))
+      fetchProjects()
     };
 
   }, [token]);
@@ -65,7 +69,7 @@ function App() {
   return (
     <AuthProvider>
       <Router>
-        <UserProfileContext.Provider value={{ user: userProfile, projects: userProjects, fetchProfile: fetchProfile }}>
+        <UserProfileContext.Provider value={{ user: userProfile, projects: userProjects, fetchProfile: fetchProfile, fetchProjects: fetchProjects }}>
           <ModalContext.Provider value={handleModal}>
             <Header loginValue={login} setLogin={handleLogin}></Header>
             <LoginModal modalValue={modal} setLogin={handleLogin}></LoginModal>

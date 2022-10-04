@@ -30,7 +30,7 @@ const GridContainer = styled(Box)(({
 const PersonalInfo = ({ editMode }) => {
 
   //CONTEXT user and proyects
-  const { name, image, description, habilities } = useContext(UserProfileContext).user;
+  const { name, image, description, habilities, headline } = useContext(UserProfileContext).user;
   const projects = useContext(UserProfileContext).projects;
 
   const userLoggedState = useGetState();
@@ -55,14 +55,19 @@ const PersonalInfo = ({ editMode }) => {
         <ProfileBox sx={{ margin: "auto" }}>
           <Avatar
             alt={name}
-            // src={profile.image}
             src={image}
             sx={{ width: 100, height: 100 }}
           />
+          <p></p>
           <Box>
-            <Typography variant="h6" component="p" color="initial">
-              {name}
-            </Typography>
+            <Box sx={{display: 'flex', alignItems: 'center', gap: '1rem'}}>
+              <Typography variant="h6" component="p" color="initial">
+                {name}
+              </Typography>
+              <Typography variant="body1" component="p" color="initial">
+                {headline}
+              </Typography>
+            </Box>
 
             <Typography component={'span'} variant={'body2'} color="initial">
               <AboutMe description={description} />

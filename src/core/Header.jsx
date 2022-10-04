@@ -6,7 +6,6 @@ import { BiLogOut, BiUser } from 'react-icons/bi'
 import images from '../constants/images'
 import { AppBar, Avatar, Box, Button, Divider, Menu, MenuItem, styled, Toolbar, Typography } from '@mui/material';
 import './Header.scss'
-import { GiHamburgerMenu } from 'react-icons/gi';
 
 const StyledToolbar = styled(Toolbar)({
   display: "flex",
@@ -67,7 +66,7 @@ const Header = ({ loginValue, setLogin }) => {
           <Typography variant="h6" component="h1" color="initial" sx={{ fontWeight: 'bold', mt: "4px", display: { xs: "none", sm: "block" } }}>
             WINDVIEW
           </Typography>
-        
+
           <Typography variant="h6" component="h1" color="initial" sx={{ fontWeight: 'bold', mt: "4px" }}>
 
           </Typography>
@@ -93,7 +92,11 @@ const Header = ({ loginValue, setLogin }) => {
             <MenuItem onClick={handleClose}>Balance</MenuItem>
             <Divider />
             <MenuItem onClick={handleClose}>
-              {loginValue ? <BiLogOut style={{ width: "20px", height: "20px" }} onClick={handleLogout} /> : <BiUser style={{ width: "20px", height: "20px" }} />}
+              <p onClick={handleLogout}>
+                {loginValue ? <BiLogOut style={{ width: "20px", height: "20px" }} /> : <BiUser style={{ width: "20px", height: "20px" }} />}
+                Logout
+              </p>
+
             </MenuItem>
           </Menu>
         </Icons>

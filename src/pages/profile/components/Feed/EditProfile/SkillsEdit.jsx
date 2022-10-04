@@ -20,6 +20,7 @@ const SkillsEdit = () => {
   const { habilities } = useContext(UserProfileContext).user;
   const jwtToken = JSON.parse(localStorage.getItem("currentUser")).token;
   const fetchProfile = useContext(UserProfileContext).fetchProfile;
+  const fetchProjects = useContext(UserProfileContext).fetchProjects;
 
   const [skillsList, setSkillsList] = useState([]);
   const [skillState, setSkillState] = useState();
@@ -43,7 +44,6 @@ const SkillsEdit = () => {
   };
 
   const handleProjectForm = (event) => {
-    console.log(event.target.value)
     setProjectForm((prevState) => ({ ...prevState, [event.target.name]: event.target.value }))
     console.log(projectForm)
   }
@@ -57,8 +57,8 @@ const SkillsEdit = () => {
         Authorization: `Bearer ${jwtToken}`
       },
       body: JSON.stringify(projectForm)
-    }).then(() => fetchProfile())
-    console.log(projectForm);
+    }).then(() => fetchProjects())
+    .finally(()=> setProjectForm(formInitialState))
   }
 
   return (
